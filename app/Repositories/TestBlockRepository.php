@@ -70,7 +70,7 @@ class TestBlockRepository extends BaseRepository
     protected function queryActiveWithUserOrderByDate()
     {
         return $this->model
-            ->select('id', 'created_at', 'updated_at', 'title', 'description', 'keywords', 'slug', 'user_id', 'summary')
+            ->select('id', 'created_at', 'updated_at', 'title', 'description', 'keywords', 'slug', 'user_id', 'summary', 'image')
             ->whereActive(true)
             ->with('user')
             ->latest();

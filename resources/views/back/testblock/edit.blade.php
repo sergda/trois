@@ -5,5 +5,5 @@
 @endsection
 
 @section('form')
-    {!! Form::model($post, ['route' => ['testblock.update', $post->id], 'method' => 'put', 'class' => 'form-horizontal panel']) !!}
+    {!! Form::model($post, ['route' => ['testblock.update', $post->id], 'method' => 'put', 'enctype'=>'multipart/form-data', 'class' => 'form-horizontal panel']) !!}
 @endsection

@@ -34,6 +34,22 @@
             {!! Form::controlBootstrap('textarea', 0, 'content', $errors, trans('back/testblock.content')) !!}
             {!! Form::controlBootstrap('text', 0, 'tags', $errors, trans('back/testblock.tags'), isset($tags)? implode(',', $tags) : '') !!}
 
+
+             <img width="100" height="100" src="/files/{!! $post->image !!}"  alt="'" />
+
+             {!! Form::controlBootstrap('file', 0, 'images', $errors, trans('back/testblock.image') ) !!}
+
+
+
+
+
+        <!-- a style="display: inline-block; margin-top: 14px; margin-left: auto; margin-right: auto; user-select: none;" href="javascript:void(0)" title="Browse Server"
+           hidefocus="true" class="cke_dialog_ui_button" role="button" aria-labelledby="cke_1043_label" id="cke_1044_uiElement" onclick='window.open("http://exemp/elfinder/ckeditor?CKEditor=summary&CKEditorFuncNum=1&langCode=en#elf_l1_XA");'>
+            <span id="cke_1043_label" class="cke_dialog_ui_button">Browse Server</span></a -->
+
+
+
+
             {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
         {!! Form::close() !!}
@@ -46,6 +62,10 @@
     {!! HTML::script('ckeditor/ckeditor.js') !!}
 
     <script>
+
+
+
+
 
         var config = {
             codeSnippet_theme: 'Monokai',

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\SearchRequest;
 use App\Repositories\TestBlockRepository;
+use Image;
 
 class TestBlockController extends Controller
 {
@@ -130,6 +131,14 @@ class TestBlockController extends Controller
         $post = $this->testBlockRepository->getById($id);
 
         $this->authorize('changeTestblock', $post);
+
+        if($request->hasFile('images')){
+            unlink( public_path('/files/' . $post->image));
+            $images = $request->file('images');
+            $filename = time() . '.' . $images->getClientOriginalExtension();
+            Image::make($images)->resize(1920, 1920)->save( public_path('/files/' . $filename));
+            $post->image = $filename;
+        }
 
         $this->testBlockRepository->update($request->all(), $post);
 

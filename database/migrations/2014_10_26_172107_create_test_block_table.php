@@ -22,6 +22,7 @@ class CreateTestBlockTable extends Migration
             $table->string('slug', 255)->unique();
             $table->text('summary');
             $table->text('content');
+            $table->string('image');
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->integer('user_id')->unsigned();
