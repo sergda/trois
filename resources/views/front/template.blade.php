@@ -16,8 +16,6 @@
 
         {!! HTML::style('css/front.css') !!}
 
-
-
     </head>
 
   <body>
@@ -25,7 +23,7 @@
     <header>
 
         <div class="brand">
-            <img src="../img/300x200.png" class="img-fluid">
+            <a href="/" title="Main"><img width="470" src="../img/tc_log1.png" class="img-fluid" alt="trois"></a>
         </div>
         <div id="flags" class="text-center"></div>
         <nav class="navbar navbar-default">
@@ -37,34 +35,106 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.html">{{ trans('front/site.title') }}</a>
+                    <a class="navbar-brand" href="/">{{ trans('front/site.title') }}</a>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li {!! classActivePath('/') !!}>
-                            {!! link_to('/', trans('front/site.home'), "title=".trans('front/site.home') ) !!}
-                        </li>
-                        <li {!! classActivePath('contact/create') !!}>
-                                {!! link_to('contact/create', trans('front/site.contact')) !!}
-                        </li>
-                        <li {!! classActiveSegment(1, ['articles', 'blog']) !!}>
-                            {!! link_to('articles', trans('front/site.blog')) !!}
-                        </li>
 
-                        <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="testblock">
-                                Пункты меню <b class="caret"></b>
-                            </a>
+                        <li class="dropdown" {!! classActivePath('/world_tc') !!}>
+                            {!! link_to('/world_tc', trans('front/site.world'), "title=".trans('front/site.world')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
+
                             <ul class="dropdown-menu">
-                                <li><a href="/testblock/test_menu1" title="Пункт меню 1">Пункт меню 1</a></li>
-                                <li><a href="/testblock/test_menu2" title="Пункт меню 2">Пункт меню 2</a></li>
-                                <li><a href="/testblock/test_menu3" title="Пункт меню 3">Пункт меню 3</a></li>
-                                <li><a href="/testblock/test_menu4" title="Пункт меню 4">Пункт меню 4</a></li>
+                                <li>
+                                    {!! link_to('/world_tc/our-history', trans('front/site.OurHistory'), "title=".trans('front/site.OurHistory') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/world_tc/our-masterpieces', trans('front/site.OurMasterpieces'), "title=".trans('front/site.OurMasterpieces') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/world_tc/our-natural-materials', trans('front/site.OurNaturalMaterials'), "title=".trans('front/site.OurNaturalMaterials') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/world_tc/your-yndividual-personalization', trans('front/site.YourIndividualPersonalization'), "title=".trans('front/site.YourIndividualPersonalization') ) !!}
+                                </li>
                             </ul>
                         </li>
 
+                        <li class="dropdown" {!! classActivePath('/collection') !!}>
+                            {!! link_to('/collection', trans('front/site.Collection'), "title=".trans('front/site.Collection')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
+                            <ul class="dropdown-menu">
+                                <li>
+                                    {!! link_to('/collection/mattresses', trans('front/site.Mattresses'), "title=".trans('front/site.Mattresses') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/original-collection', trans('front/site.OriginalCollection'), "title=".trans('front/site.OriginalCollection') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/limited-edition-products', trans('front/site.LimitedEditionProducts'), "title=".trans('front/site.LimitedEditionProducts') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/prive-collection', trans('front/site.PriveCollection'), "title=".trans('front/site.PriveCollection') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/mattress-toppers', trans('front/site.MattressToppers'), "title=".trans('front/site.MattressToppers') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/bases', trans('front/site.Bases'), "title=".trans('front/site.Bases') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/beds', trans('front/site.Beds'), "title=".trans('front/site.Beds') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/headboards', trans('front/site.Headboards'), "title=".trans('front/site.Headboards') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/accessories', trans('front/site.Accessories'), "title=".trans('front/site.Accessories') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/collection/cover-materials', trans('front/site.CoverMaterials'), "title=".trans('front/site.CoverMaterials') ) !!}
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown" {!! classActivePath('/customer_service') !!}>
+                            {!! link_to('/customer_service', trans('front/site.CustomerService'), "title=".trans('front/site.CustomerService')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    {!! link_to('/customer_service/our-promices', trans('front/site.OurPromices'), "title=".trans('front/site.OurPromices') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/customer_service/customozation_service', trans('front/site.CustomozationService'), "title=".trans('front/site.CustomozationService') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/customer_service/quality-sustainability', trans('front/site.QualitySustainability'), "title=".trans('front/site.QualitySustainability') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/customer_service/register-your-guarantee-code', trans('front/site.RegisterYourGuaranteeCode'), "title=".trans('front/site.RegisterYourGuaranteeCode') ) !!}
+                                </li>
+                            </ul>
+                        </li>
+
+
+                        <li class="dropdown" {!! classActivePath('/find_us') !!}>
+                            {!! link_to('/find_us', trans('front/site.FindUs'), "title=".trans('front/site.FindUs')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
+
+                            <ul class="dropdown-menu">
+                                <li>
+                                    {!! link_to('/find_us/home', trans('front/site.Home'), "title=".trans('front/site.Home') ) !!}
+                                </li>
+                                <li>
+                                    {!! link_to('/find_us/hotel', trans('front/site.Hotel'), "title=".trans('front/site.Hotel') ) !!}
+                                </li>
+                            </ul>
+                        </li>
+
+                        <li {!! classActivePath('/order_oatalogue') !!}>
+                            {!! link_to('/order_oatalogue', trans('front/site.OrderCatalogue'), "title=".trans('front/site.OrderCatalogue') ) !!}
+                        </li>
+
+
                         <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" />&nbsp; <b class="caret"></b></a>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" /></a>
                             <ul class="dropdown-menu">
                             @foreach ( config('app.languages') as $user)
                                 @if($user !== config('app.locale'))
