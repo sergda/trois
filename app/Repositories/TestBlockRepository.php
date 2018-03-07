@@ -47,11 +47,14 @@ class TestBlockRepository extends BaseRepository
      */
     protected function savePost($post, $inputs, $user_id = null)
     {
-        $post->title = $inputs['title'];
-        $post->description = $inputs['description'];
-        $post->keywords = $inputs['keywords'];
-        $post->summary = $inputs['summary'];
-        $post->content = $inputs['content'];
+        $post->en_title = $inputs['en_title'];
+        $post->fr_title = $inputs['fr_title'];
+        $post->en_description = $inputs['en_description'];
+        $post->fr_description = $inputs['fr_description'];
+        $post->en_keywords = $inputs['en_keywords'];
+        $post->fr_keywords = $inputs['fr_keywords'];
+        $post->en_content = $inputs['en_content'];
+        $post->fr_content = $inputs['fr_content'];
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         if ($user_id) {
@@ -70,7 +73,7 @@ class TestBlockRepository extends BaseRepository
     protected function queryActiveWithUserOrderByDate()
     {
         return $this->model
-            ->select('id', 'created_at', 'updated_at', 'title', 'description', 'keywords', 'slug', 'user_id', 'summary', 'image')
+            ->select('id', 'created_at', 'updated_at', 'en_title', 'fr_title', 'en_description', 'fr_description', 'en_keywords', 'fr_keywords', 'slug', 'user_id', 'en_image', 'fr_image')
             ->whereActive(true)
             ->with('user')
             ->latest();
@@ -113,8 +116,7 @@ class TestBlockRepository extends BaseRepository
     {
         return $this->queryActiveWithUserOrderByDate()
             ->where(function ($q) use ($search) {
-                $q->where('summary', 'like', "%$search%")
-                    ->orWhere('content', 'like', "%$search%")
+                $q->Where('content', 'like', "%$search%")
                     ->orWhere('title', 'like', "%$search%");
             })->paginate($n);
     }
@@ -131,7 +133,7 @@ class TestBlockRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('testblocks.id', 'testblocks.created_at', 'title', 'description', 'keywords', 'testblocks.seen', 'active', 'user_id', 'slug', 'username')
+            ->select('testblocks.id', 'testblocks.created_at', 'en_title', 'en_description', 'en_keywords', 'testblocks.seen', 'active', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'testblocks.user_id')
             ->orderBy($orderby, $direction);
 
@@ -191,6 +193,7 @@ class TestBlockRepository extends BaseRepository
         return $this->model->with('tags')->findOrFail($id);
     }
 
+
     /**
      * Update a post.
      *
@@ -219,6 +222,11 @@ class TestBlockRepository extends BaseRepository
         }
 
         $post->tags()->sync($tags_id);
+    }
+
+    public function postAddImageItem($inputs, $post)
+    {
+        $ff = $post;
     }
 
     /**

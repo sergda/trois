@@ -142,7 +142,6 @@ return [
         'size'                  => 'Taille',
         'comments'              => 'Commentaire',
         'slug'                  => 'Permalien',
-        'summary'               => 'Sommaire',
         'log'                   => 'Connexion',
     ],
 

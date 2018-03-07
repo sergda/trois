@@ -117,6 +117,7 @@
         {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js') !!}
         {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
         {!! HTML::script('/js/sweetalert.min.js') !!}
+        {!! HTML::script('js/jquery.form.min.js') !!}
 
         <script>
 
@@ -147,6 +148,47 @@
                         if (isConfirm) form.submit();
                     });
                 });
+
+
+                var bar = $('.bar');
+                var percent = $('.percent');
+                var status = $('#status');
+                var form = $('.gallery_upload');
+                form.ajaxForm({
+                    beforeSend: function() {
+                        //status.empty();
+                        var percentVal = '0%';
+                        bar.width(percentVal)
+                        form.find(".has-error").removeClass("has-error");
+                        percent.html(percentVal);
+                    },
+                    uploadProgress: function(event, position, total, percentComplete) {
+                        var percentVal = percentComplete + '%';
+                        bar.width(percentVal);
+                        percent.html(percentVal);
+                        //console.log(percentVal, position, total);
+                    },
+                    success: function() {
+                        var percentVal = '100%';
+                        bar.width(percentVal);
+                        percent.html(percentVal);
+                    },
+                    complete: function(data) {
+                        status.html(data.responseText);
+                        data = $.parseJSON(data.responseText);
+                        if (!data.success) {
+                            for (var k in data.errors)
+                            {
+                                form.find("[name="+ k +"]").parent().addClass("has-error");
+                            }
+                        }
+                        else {
+                            location.reload();
+                        }
+                    }
+                });
+
+
 
             });
 

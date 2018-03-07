@@ -25,6 +25,8 @@ Route::put('testblockpostseen/{id}', 'TestBlockAjaxController@updateSeen');
 Route::put('testblockpostactive/{id}', 'TestBlockAjaxController@updateActive');
 Route::get('block-test/{testblock}', 'TestBlockFrontController@show')->name('testblock.show');
 
+Route::post('addimage', 'TestBlockController@postAddImageItem');
+
 // Blog 
 //Route::get('blog/tag', 'BlogFrontController@tag');
 Route::get('blog/search', 'BlogFrontController@search');

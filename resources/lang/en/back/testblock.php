@@ -8,7 +8,6 @@ return [
     'description' => 'Description',
     'keywords' => 'Keywords',
     'permalink' => 'Permalink :',
-    'summary' => 'Summary',
     'content' => 'Content',
     'tags' => 'Tags',
     'edition' => 'Edition',
@@ -26,5 +25,16 @@ return [
     'fail' => 'Update fail.',
     'stored' => 'Post stored.',
     'updated' => 'Post updated.',
-    'destroyed' => 'Post destroyed'
+    'destroyed' => 'Post destroyed',
+    'en_title' => 'Title English',
+    'fr_title' => 'Title France',
+    'en_description' => 'Description English',
+    'fr_description' => 'Description France',
+    'en_keywords' => 'Keywords English',
+    'fr_keywords' => 'Keywords France',
+    'en_content' => 'Content English',
+    'fr_content' => 'Content France',
+    'en_image' => 'Image English',
+    'fr_image' => 'Image France',
+    'testblocks' => 'Edit page'
 ];

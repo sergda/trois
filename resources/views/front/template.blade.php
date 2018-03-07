@@ -224,6 +224,7 @@
     {!! HTML::script('js/tether.min.js') !!}
     {!! HTML::script('js/bootstrap.min.js') !!}
     {!! HTML::script('js/jqBootstrapValidation.js') !!}
+    {!! HTML::script('js/jquery.form.min.js') !!}
     {!! HTML::script('js/script.js') !!}
 
 
