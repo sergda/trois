@@ -67,7 +67,7 @@ class PostTest extends TestCase
             ->type('aa a', 'tags')
             ->press('Send')
             ->see('The title may not be greater than 255 characters')
-            ->see('The slug has already been taken')
+            ->see('The slug has already been taken111111111111111')
             ->see('The summary may not be greater than 65000 characters')
             ->see('The content may not be greater than 65000 characters')
             ->see('Tags, separated by commas (no spaces), should have a maximum of 50 characters');

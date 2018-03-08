@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use App\Http\Requests\SearchRequest;
 use App\Repositories\TestBlockRepository;
+use Intervention\Image;
 
 class TestBlockController extends Controller
 {
@@ -135,6 +136,30 @@ class TestBlockController extends Controller
 
         return redirect('testblock')->with('ok', trans('back/testBlock.updated'));
     }
+
+
+
+    public function postAddImageItem(PostRequest $request, $id)
+    {
+        $post = $this->testBlockRepository->getById($id);
+
+        $this->authorize('changeTestblock', $post);
+
+        if($request->hasFile('en_images')){
+
+          //  $images = $request->file('en_images');
+          //  $filename = time() . '.' . $images->getClientOriginalExtension();
+          //  Image::make($images)->resize(1920, 1920)->save( public_path('/files/' . $filename));
+
+
+
+
+        }
+
+
+    }
+
+
 
     /**
      * Remove the specified post from storage.

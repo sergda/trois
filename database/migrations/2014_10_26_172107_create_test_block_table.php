@@ -16,12 +16,17 @@ class CreateTestBlockTable extends Migration
         Schema::create('testblocks', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('title', 255);
-            $table->string('description', 255);
-            $table->string('keywords', 255);
+            $table->string('en_title', 255);
+            $table->string('fr_title', 255);
+            $table->string('en_description', 255);
+            $table->string('fr_description', 255);
+            $table->string('en_keywords', 255);
+            $table->string('fr_keywords', 255);
             $table->string('slug', 255)->unique();
-            $table->text('summary');
-            $table->text('content');
+            $table->text('en_content');
+            $table->text('fr_content');
+            $table->string('en_image');
+            $table->string('fr_image');
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->integer('user_id')->unsigned();

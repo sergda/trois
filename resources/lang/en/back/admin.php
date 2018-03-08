@@ -12,7 +12,7 @@ return [
     'messages' => 'Messages',
     'comments' => 'Comments',
     'medias' => 'Medias',
-    'postsGGG' => 'Posts',
+    'posts' => 'Posts',
     'testblock' => 'testblock',
     'new-messages' => 'New messages !',
     'new-registers' => 'New users !',
