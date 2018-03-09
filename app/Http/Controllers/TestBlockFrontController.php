@@ -41,9 +41,9 @@ class TestBlockFrontController extends Controller
      */
     public function index()
     {
-        $testblocks = $this->testBlockRepository->getActiveWithUserOrderByDate($this->nbrPages);
+        $items = $this->testBlockRepository->getActiveWithUserOrderByDate($this->nbrPages);
 
-        return view('front.testblock.index', compact('item'));
+        return view('front.common_template.index', compact('items'));
     }
 
     /**
@@ -57,7 +57,7 @@ class TestBlockFrontController extends Controller
     {
         $user = $request->user();
 
-        return view('front.testblock.show', array_merge($this->testBlocksRepository->getPostBySlug($slug), compact('user')));
+        return view('front.common_template.show', array_merge($this->testBlockRepository->getPostBySlug($slug), compact('user')));
     }
 
     /**

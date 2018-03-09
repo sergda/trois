@@ -5,11 +5,8 @@
 
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>{{ trans('front/site.title') }}</title>
-        <meta name="description" content="">    
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <meta name="csrf-token" content="{{ csrf_token() }}">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         @yield('head')
@@ -23,7 +20,7 @@
     <header>
 
         <div class="brand">
-            <a href="/" title="Main"><img width="470" src="../img/tc_log1.png" class="img-fluid" alt="trois"></a>
+            <a href="/" title="Main"><img width="470" src="/img/tc_log1.png" class="img-fluid" alt="trois"></a>
         </div>
         <div id="flags" class="text-center"></div>
         <nav class="navbar navbar-default">
@@ -168,7 +165,7 @@
                 <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal1">Secondary action</a>
             </div>
 
-            <img src="../img/300x200.png" class="img-fluid">
+            <img src="/img/logo_bottom.png" class="img-fluid">
         </div>
 
 

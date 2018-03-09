@@ -159,6 +159,7 @@ class TestBlockRepository extends BaseRepository
     {
         $post = $this->model->with('user', 'tags')->whereSlug($slug)->firstOrFail();
 
+        /*
         $comments = $this->comment
             ->wherePostId($post->id)
             ->with('user')
@@ -166,8 +167,35 @@ class TestBlockRepository extends BaseRepository
                 $q->whereValid(true);
             })
             ->get();
-
+        
         return compact('post', 'comments');
+        */
+
+        $en_image = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'en_images')
+            ->where('table', 'testblocks')
+            ->first();
+
+        $fr_image = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'fr_images')
+            ->where('table', 'testblocks')
+            ->first();
+
+        $en_slider = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'en_slider')
+            ->where('table', 'testblocks')
+            ->get();
+
+        $fr_slider = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'fr_slider')
+            ->where('table', 'testblocks')
+            ->get();
+
+        return compact('post', 'en_image', 'fr_image', 'en_slider', 'fr_slider');
     }
 
     /**
