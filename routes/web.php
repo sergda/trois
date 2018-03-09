@@ -18,14 +18,17 @@ Route::get('medias', 'FilemanagerController')->name('medias');
 // TestBlock
 //Route::get('block-test/tag', 'TestBlockFrontController@tag');
 Route::get('block-test/search', 'TestBlockFrontController@search');
-Route::get('block-test', 'TestBlockFrontController@index');
 Route::get('testblock/order', 'TestBlockController@indexOrder')->name('testblock.order');
 Route::resource('testblock', 'TestBlockController', ['except' => 'show']);
 Route::put('testblockpostseen/{id}', 'TestBlockAjaxController@updateSeen');
 Route::put('testblockpostactive/{id}', 'TestBlockAjaxController@updateActive');
+
+// rout front
+Route::get('block-test', 'TestBlockFrontController@index');
 Route::get('block-test/{testblock}', 'TestBlockFrontController@show')->name('testblock.show');
 
-Route::post('addimage', 'TestBlockController@postAddImageItem');
+Route::put('delete-image/{id}', 'ImagesProjectController@destroy');
+Route::post('addimage', 'ImagesProjectController@postAddImageItem');
 
 // Blog 
 //Route::get('blog/tag', 'BlogFrontController@tag');

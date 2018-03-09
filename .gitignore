@@ -27,4 +27,6 @@ fabric.properties
 # database/database.sqlite
 # public/files/.quarantine/
 # public/files/.tmb/*
+ public/files/
+ public/files/*
 .env

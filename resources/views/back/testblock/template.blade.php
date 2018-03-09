@@ -39,51 +39,112 @@
             {!! Form::controlBootstrap('text', 0, 'tags', $errors, trans('back/testblock.tags'), isset($tags)? implode(',', $tags) : '') !!}
 
 
-         <img width="100" height="100" src="/files/{!! $post->en_image !!}"  alt="'" />
-         {!! Form::controlBootstrap('file', 0, 'en_images', $errors, trans('back/testblock.en_image') ) !!}
-
-        <img width="100" height="100" src="/files/{!! $post->fr_image !!}"  alt="'" />
-        {!! Form::controlBootstrap('file', 0, 'fr_images', $errors, trans('back/testblock.fr_image') ) !!}
-
-
-
-
-
-    <!-- a style="display: inline-block; margin-top: 14px; margin-left: auto; margin-right: auto; user-select: none;" href="javascript:void(0)" title="Browse Server"
-       hidefocus="true" class="cke_dialog_ui_button" role="button" aria-labelledby="cke_1043_label" id="cke_1044_uiElement" onclick='window.open("http://exemp/elfinder/ckeditor?CKEditor=summary&CKEditorFuncNum=1&langCode=en#elf_l1_XA");'>
-        <span id="cke_1043_label" class="cke_dialog_ui_button">Browse Server</span></a -->
-
-
-
-
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
     {!! Form::close() !!}
 
 
-        <form class="gallery_upload" action="{{ action("TestBlockController@postAddImageItem") }}" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-                {{ Form::label("title", "���������: ") }}
-                {{ Form::text('title', false, array('class'=>'form-control', 'placeholder'=>'���������')) }}
-            </div>
-
-            <div class="form-group">
-                {{ Form::label("file", "��������: ") }}
-                {{ Form::file('file', false, array('class'=>'form-control')) }}
-            </div>
-
+<div class="row">
+    <div class="col-md-6">
+        <div class="imgBlock">
+            @if (isset($en_image))
+                <div data-id_image="{{ $en_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                <img width="150" height="150" src="/files/{{ isset($en_image->revent_name) ? $en_image->revent_name : 'no_photo.png' }}" />
+            @endif
+        </div>
+        <form class="gallery_upload" action="{{ action("ImagesProjectController@postAddImageItem") }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="field_images" value="en_images" />
+            <input type="hidden" name="table" value="testblocks" />
+            <input type="hidden" name="img_type" value="images" />
+            <input type="hidden" name="id_el" value="{{ $post->id  }}" />
+            {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка английского языка') !!}
             <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
-            <input type="submit" class="btn btn-default" value="��������">
+            <input type="submit" class="btn btn-default" value="Добавить">
         </form>
-
+    </div>
+    <div class="col-md-6">
+        <div class="imgBlock">
+            @if (isset($fr_image))
+                <div data-id_image="{{ $fr_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
+            @endif
+        </div>
+        <form class="gallery_upload" action="{{ action("ImagesProjectController@postAddImageItem") }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="field_images" value="fr_images" />
+            <input type="hidden" name="table" value="testblocks" />
+            <input type="hidden" name="img_type" value="images" />
+            <input type="hidden" name="id_el" value="{{ $post->id  }}" />
+            {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка французкого языка') !!}
+            <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
+            <input type="submit" class="btn btn-default" value="Добавить">
+        </form>
+    </div>
+</div>
         <br /><br />
         <div class="progress">
             <div class="bar"></div>
             <div class="percent">0%</div>
         </div>
         <div id="status"></div>
+</div>
+
+<div class="row">
+
+    <div class="col-md-6">
+        <div class="row">
+            @if (isset($en_slider) && count($en_slider) > 0)
+                @foreach($en_slider as $slide)
+                    <div class="col-md-6 imgBlock">
+                        <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                        <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />
+                    </div>
+                @endforeach
+            @endif
+        </div>
+
+
+        <div style="clear: both"></div>
+
+        <form class="gallery_upload" action="{{ action("ImagesProjectController@postAddImageItem") }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="field_images" value="en_slider" />
+            <input type="hidden" name="table" value="testblocks" />
+            <input type="hidden" name="img_type" value="slider" />
+            <input type="hidden" name="id_el" value="{{ $post->id  }}" />
+            {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки английского языка') !!}
+            <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
+            <input type="submit" class="btn btn-default" value="Добавить">
+        </form>
+    </div>
+
+    <div class="col-md-6">
+        <div class="row">
+            @if (isset($fr_slider) && count($fr_slider) > 0)
+                @foreach($fr_slider as $slide)
+                    <div class="col-md-6 imgBlock">
+                        <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                        <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />
+                    </div>
+                @endforeach
+            @endif
+        </div>
+
+
+        <div style="clear: both"></div>
+
+        <form class="gallery_upload" action="{{ action("ImagesProjectController@postAddImageItem") }}" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="field_images" value="fr_slider" />
+            <input type="hidden" name="table" value="testblocks" />
+            <input type="hidden" name="img_type" value="slider" />
+            <input type="hidden" name="id_el" value="{{ $post->id  }}" />
+            {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки франсузкого языка') !!}
+            <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
+            <input type="submit" class="btn btn-default" value="Добавить">
+        </form>
+    </div>
 
 </div>
+
+
 
 @endsection
 

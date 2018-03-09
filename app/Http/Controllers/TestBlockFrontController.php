@@ -43,7 +43,7 @@ class TestBlockFrontController extends Controller
     {
         $testblocks = $this->testBlockRepository->getActiveWithUserOrderByDate($this->nbrPages);
 
-        return view('front.testblock.index', compact('testblocks'));
+        return view('front.testblock.index', compact('item'));
     }
 
     /**

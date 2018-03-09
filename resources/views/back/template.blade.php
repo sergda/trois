@@ -123,6 +123,25 @@
 
             $(function() {
 
+                $('.deleteImage').on('click', function() {
+
+                    var id_image = $(this).data('id_image');
+                    var id_el = $(this).data('id_el');
+                    var el = $(this).parent('.imgBlock');
+                    $.ajax({
+                        url: '{{ url('delete-image') }}' + '/' + id_image,
+                        type: 'PUT',
+                        data: { id_image: id_image, id_el:id_el }
+                    })
+                            .done(function() {
+                                $(el).remove();
+                            })
+                            .fail(function() {
+                                alert('{{ trans('back/testblock.fail') }}');
+                            });
+                });
+
+
                 $('#logout').click(function(e) {
                     e.preventDefault();
                     $('#logout-form').submit();

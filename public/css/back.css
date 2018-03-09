@@ -9063,3 +9063,15 @@ body.stop-scrolling {
     opacity: 0;
     -webkit-transform: translateY(145%);
     transform: translateY(145%); } }
+
+.imgBlock{
+  position: relative;
+}
+.deleteImage{
+  position: absolute;
+  left: 10px;
+  font-size: 30px;
+  color: orangered;
+  font-weight: bold;
+  cursor: pointer;
+}

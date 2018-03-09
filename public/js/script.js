@@ -18,7 +18,7 @@ $(document).on('submit', '#fedbackForm', function(e){
         if(data.successMessage) {
             form.find(".form-group").hide();
             form.find("modal-footer").hide();
-            form.append("<div class='success'><b>Спасибо! ваша заявка принята.</b><br />" +
+            form.append("<div class='success'><b>РЎРїР°СЃРёР±Рѕ! РІР°С€Р° Р·Р°СЏРІРєР° РїСЂРёРЅСЏС‚Р°.</b><br />" +
                 "</div>")
             form.find("input").attr("disabled", true);
         }

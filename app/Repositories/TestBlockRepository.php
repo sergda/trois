@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Models\Testblock;
 use App\Models\Tag;
 use App\Models\Comment;
+use App\Models\ImagesProject;
 
 class TestBlockRepository extends BaseRepository
 {
@@ -30,11 +31,15 @@ class TestBlockRepository extends BaseRepository
      * @param  \App\Models\Comment $comment
      * @return void
      */
-    public function __construct(Testblock $post, Tag $tag, Comment $comment)
+
+    protected $imagesProject;
+
+    public function __construct(Testblock $post, Tag $tag, Comment $comment, ImagesProject $imagesProject)
     {
         $this->model = $post;
         $this->tag = $tag;
         $this->comment = $comment;
+        $this->imagesProject = $imagesProject;
     }
 
     /**
@@ -73,7 +78,7 @@ class TestBlockRepository extends BaseRepository
     protected function queryActiveWithUserOrderByDate()
     {
         return $this->model
-            ->select('id', 'created_at', 'updated_at', 'en_title', 'fr_title', 'en_description', 'fr_description', 'en_keywords', 'fr_keywords', 'slug', 'user_id', 'en_image', 'fr_image')
+            ->select('id', 'created_at', 'updated_at', 'en_title', 'fr_title', 'en_description', 'fr_description', 'en_keywords', 'fr_keywords', 'slug', 'user_id')
             ->whereActive(true)
             ->with('user')
             ->latest();
@@ -179,7 +184,31 @@ class TestBlockRepository extends BaseRepository
             array_push($tags, $tag->tag);
         }
 
-        return compact('post', 'tags');
+        $en_image = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'en_images')
+            ->where('table', 'testblocks')
+            ->first();
+
+        $fr_image = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'fr_images')
+            ->where('table', 'testblocks')
+            ->first();
+
+        $en_slider = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'en_slider')
+            ->where('table', 'testblocks')
+            ->get();
+
+        $fr_slider = $this->imagesProject
+            ->where('element_id', $post->id)
+            ->where('field', 'fr_slider')
+            ->where('table', 'testblocks')
+            ->get();
+
+        return compact('post', 'tags', 'en_image', 'fr_image', 'en_slider', 'fr_slider');
     }
 
     /**
@@ -222,11 +251,6 @@ class TestBlockRepository extends BaseRepository
         }
 
         $post->tags()->sync($tags_id);
-    }
-
-    public function postAddImageItem($inputs, $post)
-    {
-        $ff = $post;
     }
 
     /**
