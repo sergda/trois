@@ -27,6 +27,27 @@ Route::put('testblockpostactive/{id}', 'TestBlockAjaxController@updateActive');
 Route::get('block-test', 'TestBlockFrontController@index');
 Route::get('block-test/{testblock}', 'TestBlockFrontController@show')->name('testblock.show');
 
+
+
+
+
+/* ******** World Tc { ************** */
+
+Route::get('worldtc/order', 'WorldTcController@indexOrder')->name('worldtc.order');
+Route::resource('worldtc', 'WorldTcController', ['except' => 'show']);
+Route::put('worldtcpostseen/{id}', 'WorldTcAjaxController@updateSeen');
+Route::put('worldtcpostactive/{id}', 'WorldTcAjaxController@updateActive');
+
+// rout front
+Route::get('world_tc', 'WorldTcFrontController@index');
+Route::get('world_tc/{code}', 'WorldTcFrontController@show')->name('worldtc.show');
+
+
+/* ******** } World Tc ************** */
+
+
+
+
 Route::put('delete-image/{id}', 'ImagesProjectController@destroy');
 Route::post('addimage', 'ImagesProjectController@postAddImageItem');
 

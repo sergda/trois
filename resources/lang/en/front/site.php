@@ -16,7 +16,7 @@ return [
     'salutation' => 'Regards',
     'yes' => 'Yes',
     'no' => 'No',
-    'world'=> 'The	World	of	TC',
+    'world'=> 'The World of TC',
     'OurHistory'=>'Our	History',
     'OurMasterpieces'=>'Our	Masterpieces',
     'OurNaturalMaterials'=>'Our	Natural	Materials',

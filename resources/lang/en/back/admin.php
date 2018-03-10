@@ -18,5 +18,6 @@ return [
     'new-registers' => 'New users !',
     'new-posts' => 'New posts !',
     'new-comments' => 'New comments !',
-    'blog-report' => 'Blog Report'
+    'blog-report' => 'Blog Report',
+    'worldtc' => 'The World of TC'
 ];

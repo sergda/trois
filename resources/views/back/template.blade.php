@@ -95,6 +95,14 @@
                             </ul>
                         </li>
 
+                        <li {!! classActiveSegment(1, 'worldtc') !!}>
+                            <a href="#" data-toggle="collapse" data-target="#worldtcmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.worldtc') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                            <ul id="worldtcmenu" class="collapse">
+                                <li><a href="{!! url('worldtc') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                <li><a href="{!! url('worldtc/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                            </ul>
+                        </li>
+
                         @if(!empty($notifications))
                             <li><a href="{!! url('notifications/' . auth()->id()) !!}"><span class="fa fa-fw fa-bell-o"></span> Notifications</a></li>
                         @endif

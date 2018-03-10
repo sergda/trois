@@ -132,10 +132,12 @@ return [
         'front' => [
             'posts' => 2,
             'testblocks' => 2,
+            'worldtcs' => 10,
         ],
         'back' => [
             'posts' => 5,
             'testblocks' => 5,
+            'worldtcs' => 5,
             'users' => 5,
             'comments' => 3,
         ],
