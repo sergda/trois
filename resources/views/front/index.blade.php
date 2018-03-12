@@ -3,7 +3,7 @@
 @section('main')
 
     <section class="text-center">
-        <img src="../img/blocks-1920x400-codeboard.jpg" class="img-fluid">
+        <img src="/img/blocks-1920x400-codeboard.jpg" class="img-fluid">
     </section>
     <section class="jumbotron text-center marTB10">
         <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae consequatur, ducimus maxime minima

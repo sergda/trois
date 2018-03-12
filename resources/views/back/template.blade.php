@@ -69,16 +69,20 @@
                                     <li><a href="{!! url('user/blog-report') !!}">{{ trans('back/admin.blog-report') }}</a></li>
                                 </ul>
                             </li>
+{{--
                             <li {!! classActivePath('contact') !!}>
                                 <a href="{!! url('contact') !!}"><span class="fa fa-fw fa-envelope"></span> {{ trans('back/admin.messages') }}</a>
-                            </li>  
+                            </li>
                             <li {!! classActivePath('comment') !!}>
                                 <a href="{!! url('comment') !!}"><span class="fa fa-fw fa-comments"></span> {{ trans('back/admin.comments') }}</a>
-                            </li> 
-                        @endif                  
+                            </li>
+ --}}
+                        @endif
                         <li {!! classActivePath('medias') !!}>
                             <a href="{!! route('medias') !!}"><span class="fa fa-fw fa-file-image-o"></span> {{ trans('back/admin.medias') }}</a>
                         </li>
+
+ {{--
                         <li {!! classActiveSegment(1, 'blog') !!}>
                             <a href="#" data-toggle="collapse" data-target="#articlemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.posts') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="articlemenu" class="collapse">
@@ -87,6 +91,7 @@
                             </ul>
                         </li>
 
+
                         <li {!! classActiveSegment(1, 'testblock') !!}>
                             <a href="#" data-toggle="collapse" data-target="#testblockmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.testblock') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="testblockmenu" class="collapse">
@@ -94,7 +99,7 @@
                                 <li><a href="{!! url('testblock/create') !!}">{{ trans('back/admin.add') }}</a></li>
                             </ul>
                         </li>
-
+--}}
                         <li {!! classActiveSegment(1, 'worldtc') !!}>
                             <a href="#" data-toggle="collapse" data-target="#worldtcmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.worldtc') }} <span class="fa fa-fw fa-caret-down"></span></a>
                             <ul id="worldtcmenu" class="collapse">
@@ -102,6 +107,34 @@
                                 <li><a href="{!! url('worldtc/create') !!}">{{ trans('back/admin.add') }}</a></li>
                             </ul>
                         </li>
+
+                            <li {!! classActiveSegment(1, 'adm_collection') !!}>
+                                <a href="#" data-toggle="collapse" data-target="#collectionmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.collection') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="collectionmenu" class="collapse">
+                                    <li><a href="{!! url('adm_collection') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('adm_collection/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li {!! classActiveSegment(1, 'adm_customer_service') !!}>
+                                <a href="#" data-toggle="collapse" data-target="#customer_servicemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.customer_service') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="customer_servicemenu" class="collapse">
+                                    <li><a href="{!! url('adm_customer_service') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('adm_customer_service/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li {!! classActiveSegment(1, 'adm_find_us') !!}>
+                                <a href="#" data-toggle="collapse" data-target="#find_usmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.find_us') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="find_usmenu" class="collapse">
+                                    <li><a href="{!! url('adm_find_us') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('adm_find_us/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                                </ul>
+                            </li>
+
+                            <li {!! classActivePath('adm_order_catalogue') !!}>
+                                <a href="{!! url('adm_order_catalogue') !!}"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.order_catalogue') }}</a>
+                            </li>
 
                         @if(!empty($notifications))
                             <li><a href="{!! url('notifications/' . auth()->id()) !!}"><span class="fa fa-fw fa-bell-o"></span> Notifications</a></li>

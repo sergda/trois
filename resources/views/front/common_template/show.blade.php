@@ -45,9 +45,34 @@
 
     @php
         $content = $post->fr_content;
-        $title = $post->en_title;
-        $description = $post->en_description;
-        $keywords = $post->en_keywords;
+        $title = $post->fr_title;
+        $description = $post->fr_description;
+        $keywords = $post->fr_keywords;
+    @endphp
+
+@elseif( config('app.locale') == "de" )
+
+    @if( isset( $de_image ) )
+
+        @php
+            $previevUrl = '/files/'.$de_image->revent_name;
+        @endphp
+
+    @endif
+
+    @if( isset( $de_slider ) )
+
+        @php
+            $slider = $de_slider;
+        @endphp
+
+    @endif
+
+    @php
+        $content = $post->de_content;
+        $title = $post->de_title;
+        $description = $post->de_description;
+        $keywords = $post->de_keywords;
     @endphp
 
 @endif

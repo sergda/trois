@@ -23,37 +23,20 @@ class DatabaseSeeder extends Seeder
         DB::table('users')->insert([
 
             ['username' => 'GreatAdmin',
-            'email' => 'admin@la.fr',
+            'email' => 'bitrix_serg@mail.ru',
             'password' => bcrypt('admin'),
             'seen' => true,
             'role_id' => 1,
             'valid' => true,
             'confirmed' => true],
 
-            ['username' => 'GreatRedactor',
+            ['username' => 'bitrix_serg@mail.ru',
             'email' => 'redac@la.fr',
             'password' => bcrypt('redac'),
             'seen' => true,
             'role_id' => 2,
             'valid' => true,
-            'confirmed' => true],
-
-            ['username' => 'Walker',
-            'email' => 'walker@la.fr',
-            'password' => bcrypt('walker'),
-            'seen' => false,
-            'role_id' => 3,
-            'valid' => false,
-            'confirmed' => true],
-
-            ['username' => 'Slacker',
-            'email' => 'slacker@la.fr',
-            'password' => bcrypt('slacker'),
-            'seen' => false,
-            'role_id' => 3,
-            'valid' => false,
             'confirmed' => true]
-
         ]);
 
         DB::table('contacts')->insert([

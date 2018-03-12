@@ -15,9 +15,8 @@
         @foreach($items as $item)
             <div class="box">
                 <div class="col-lg-12 text-center">
-                    <h2>{{ $item->en_title }}</h2>
+                    <h2>{{  (config('app.locale') == "en") ? $item->en_title : (config('app.locale') == "fr") ? $item->fr_title : (config('app.locale') == "fr") ? $item->de_title : '-'  }}</h2>
                 </div>
-
                 <div class="col-lg-12 text-center">
                     {!! link_to('block-test/' . $item->slug, trans('front/all.button'), ['class' => 'btn btn-default btn-lg']) !!}
                     <hr>

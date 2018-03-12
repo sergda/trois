@@ -8,7 +8,7 @@ use App\Repositories\WorldTcRepository;
 
 class WorldTcFrontController extends Controller
 {
-    protected $testBlockRepository;
+    protected $worldTcRepository;
     
     protected $nbrPages;
 

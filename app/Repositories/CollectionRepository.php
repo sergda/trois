@@ -2,16 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Worldtc;
+use App\Models\Collection;
 use App\Models\ImagesProject;
 
-class WorldTcRepository extends BaseRepository
+class CollectionRepository extends BaseRepository
 {
-    protected $comment;
-    
     protected $imagesProject;
-
-    public function __construct(Worldtc $post, ImagesProject $imagesProject)
+    
+    public function __construct(Collection $post, ImagesProject $imagesProject)
     {
         $this->model = $post;
         $this->imagesProject = $imagesProject;
@@ -58,8 +56,8 @@ class WorldTcRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('worldtcs.id', 'worldtcs.created_at', 'en_title', 'en_description', 'en_keywords', 'worldtcs.seen', 'active', 'user_id', 'slug', 'username')
-            ->join('users', 'users.id', '=', 'worldtcs.user_id')
+            ->select('collections.id', 'collections.created_at', 'en_title', 'en_description', 'en_keywords', 'collections.seen', 'active', 'user_id', 'slug', 'username')
+            ->join('users', 'users.id', '=', 'collections.user_id')
             ->orderBy($orderby, $direction);
 
         if ($user_id) {
@@ -76,37 +74,37 @@ class WorldTcRepository extends BaseRepository
         $en_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
 
         $fr_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
 
         $de_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
 
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
 
         $fr_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
 
         $de_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
         
         return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');
@@ -118,37 +116,37 @@ class WorldTcRepository extends BaseRepository
         $en_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
 
         $fr_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
 
         $de_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_images')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->first();
         
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
 
         $fr_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
 
         $de_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_slider')
-            ->where('table', 'worldtcs')
+            ->where('table', 'collections')
             ->get();
         
         return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');

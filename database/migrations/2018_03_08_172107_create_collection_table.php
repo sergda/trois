@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateWorldTcTable extends Migration
+class CreateCollectionTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateWorldTcTable extends Migration
      */
     public function up()
     {
-        Schema::create('worldtcs', function (Blueprint $table) {
+        Schema::create('collections', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('en_title', 255);
@@ -26,15 +26,15 @@ class CreateWorldTcTable extends Migration
             $table->string('fr_keywords', 255);
             $table->string('de_keywords', 255);
             $table->string('slug', 255)->unique();
-            $table->text('en_content')->default('Sorry, the page is under construction');
-            $table->text('fr_content')->default('Sorry, the page is under construction');
-            $table->text('de_content')->default('Sorry, the page is under construction');
+            $table->text('en_content');
+            $table->text('fr_content');
+            $table->text('de_content');
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->integer('user_id')->unsigned();
         });
 
-        Schema::table('worldtcs', function (Blueprint $table) {
+        Schema::table('collections', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
@@ -48,10 +48,10 @@ class CreateWorldTcTable extends Migration
      */
     public function down()
     {
-        Schema::table('worldtcs', function (Blueprint $table) {
-            $table->dropForeign('worldtcs_user_id_foreign');
+        Schema::table('collections', function (Blueprint $table) {
+            $table->dropForeign('collections_user_id_foreign');
         });
 
-        Schema::drop('worldtcs');
+        Schema::drop('collections');
     }
 }

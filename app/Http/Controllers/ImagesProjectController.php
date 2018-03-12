@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Repositories\WorldTcRepository;
 use Illuminate\Http\Request;
 use App\Http\Requests\PostRequest;
 use Intervention\Image\Facades\Image;
@@ -11,80 +12,37 @@ use App\Repositories\TestBlockRepository;
 class ImagesProjectController extends Controller
 {
 
-    protected $ImagesProject;
-    protected $TestBlockRepository;
-
-    public function __construct(ImagesProject $ImagesProject, TestBlockRepository $testBlockRepository)
+    protected $imagesProject;
+    protected $testBlockRepository;
+    protected $worldTcRepository;
+    
+    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository)
     {
-        $this->ImagesProject = $ImagesProject;
-        $this->TestBlockRepository = $testBlockRepository;
+        $this->imagesProject = $imagesProject;
+        $this->testBlockRepository = $testBlockRepository;
+        $this->worldTcRepository = $worldTcRepository;
 
+        $this->middleware('admin');
         $this->middleware('redac');
-    }
-
-
-    /**
-     * Display a listing of the resource.
-     *
-     * @return Response
-     */
-    public function index()
-    {
-//        $ImagesProject = $this->ImagesProject->orderBy("position")->get();
-
-//        $this->layout->content = View::make('FacingPhotos.index', compact('FacingPhotos'));
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return Response
-     */
-    public function create()
-    {
-  //      $this->layout->content = View::make('FacingPhotos.create');
+        $this->middleware('ajax');
     }
     
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return Response
-     */
-    public function show($id)
-    {
-//        return Redirect::action('FacingPhotosController@edit', $id);
-    }
-    
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return Response
-     */
     public function destroy(PostRequest $request)
     {
-        $post = $this->TestBlockRepository->getById($request->id_el);
-        $this->authorize('changeTestblock', $post);
+   //     $post = $this->testBlockRepository->getById($request->id_el);
+   //     $this->authorize('changeTestblock', $post);
 
-        $this->ImagesProject->find($request->id_image)->delete();
+        $this->imagesProject->find($request->id_image)->delete();
         return "ok";
   //      return Redirect::action('FacingPhotosController@index');
     }
 
+    public function imgSave($request){
 
-
-    public function postAddImageItem(PostRequest $request) {
-        $post = $this->TestBlockRepository->getById($request->id_el);
-        $this->authorize('changeTestblock', $post);
-        //$locale = $request->getLocale();
-        //if($request->hasFile($locale.'_images')){
         if($request->hasFile('images')){
 
             if( $request->img_type == 'images') {
-                $readImage = $this->ImagesProject
+                $readImage = $this->imagesProject
                     ->where('element_id', $request->id_el)
                     ->where('table', $request->table)
                     ->where('field', $request->field_images)
@@ -98,7 +56,7 @@ class ImagesProjectController extends Controller
 
             $images = $request->file('images');
             $filename = time() . '.' . $images->getClientOriginalExtension();
-            Image::make($images)->resize(1920, 1920)->save( public_path('/files/' . $filename));
+            //Image::make($images)->resize(1920, 1920)->save( public_path('/files/' . $filename));
             Image::make($images)->save( public_path('/files/' . $filename));
             $imgProject = new ImagesProject;
             $imgProject->element_id = $request->id_el;
@@ -108,15 +66,16 @@ class ImagesProjectController extends Controller
             $imgProject->revent_name = $filename;
             $imgProject->save();
         }
-        die(json_encode(array(
-            'success' => true,
-            'errors' => false
-        )));
+        return json_encode(array('success' => true, 'errors' => false));
     }
 
-    public function getGallery() {
+    public function worldtcPostAddImageItem(PostRequest $request){
 
-    //    $this->layout->content = View::make("gallery.admin.list", $this->template_data);
+        $post = $this->worldTcRepository->getById($request->id_el);
+        $this->authorize('changeTestblock', $post);
+        //$locale = $request->getLocale();
+        //if($request->hasFile($locale.'_images')){
+        
+        return $this->imgSave($request);
     }
-    
 }
