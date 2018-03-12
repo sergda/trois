@@ -10,6 +10,7 @@ use App\Models\ImagesProject;
 use App\Repositories\TestBlockRepository;
 use App\Repositories\CollectionRepository;
 use App\Repositories\CustomerServiceRepository;
+use App\Repositories\FindUsRepository;
 
 class ImagesProjectController extends Controller
 {
@@ -19,14 +20,17 @@ class ImagesProjectController extends Controller
     protected $worldTcRepository;
     protected $collectionRepository;
     protected $customerServiceRepository;
-    
-    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository, CollectionRepository $collectionRepository, CustomerServiceRepository $customerServiceRepository)
+    protected $findUsRepository;
+
+
+    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository, CollectionRepository $collectionRepository, CustomerServiceRepository $customerServiceRepository, FindUsRepository $findUsRepository)
     {
         $this->imagesProject = $imagesProject;
         $this->testBlockRepository = $testBlockRepository;
         $this->worldTcRepository = $worldTcRepository;
         $this->collectionRepository = $collectionRepository;
         $this->customerServiceRepository = $customerServiceRepository;
+        $this->findUsRepository = $findUsRepository;
 
         $this->middleware('admin');
         $this->middleware('redac');
@@ -89,9 +93,6 @@ class ImagesProjectController extends Controller
 
         $post = $this->collectionRepository->getById($request->id_el);
         $this->authorize('changeCollection', $post);
-        //$locale = $request->getLocale();
-        //if($request->hasFile($locale.'_images')){
-
         return $this->imgSave($request);
     }
 
@@ -99,9 +100,12 @@ class ImagesProjectController extends Controller
 
         $post = $this->customerServiceRepository->getById($request->id_el);
         $this->authorize('changeCustomerservice', $post);
-        //$locale = $request->getLocale();
-        //if($request->hasFile($locale.'_images')){
+        return $this->imgSave($request);
+    }
 
+    public function findUsPostAddImageItem(PostRequest $request){
+        $post = $this->findUsRepository->getById($request->id_el);
+        $this->authorize('changeFindus', $post);
         return $this->imgSave($request);
     }
 }

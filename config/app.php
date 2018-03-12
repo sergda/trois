@@ -120,7 +120,8 @@ return [
     ! and at least, add the ISO code in languages array.
     */
 
-    'languages' => ['en', 'fr', 'de'],   
+    //'languages' => ['en', 'fr', 'de'],
+    'languages' => ['en', 'de'],
 
     /*
     |--------------------------------------------------------------------------
@@ -140,7 +141,7 @@ return [
         'back' => [
             'posts' => 5,
             'testblocks' => 5,
-            'worldtcs' => 5,
+            'worldtcs' => 10,
             'collections' => 10,
             'users' => 5,
             'comments' => 3,

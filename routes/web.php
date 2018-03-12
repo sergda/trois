@@ -118,6 +118,7 @@ Route::post('findusaddimage', 'ImagesProjectController@findUsPostAddImageItem');
 
 Route::put('delete-image/{id}', 'ImagesProjectController@destroy');
 
+Route::post('/send.json', 'HomeController@postSend');
 
 // Blog 
 //Route::get('blog/tag', 'BlogFrontController@tag');

@@ -113,8 +113,10 @@
                 @if($slider->count())
                     <div class="row sliderBlock text-center">
                         @foreach($slider as $item)
-                            <div class="col-lg-3">
-                                <img class="img-fluid" src="/files/{{ $item->revent_name }}" />
+                            <div class="col-lg-4">
+                                <a href="/files/{{ $item->revent_name }}" data-lightbox="roadtrip">
+                                    <img class="img-fluid" src="/files/{{ $item->revent_name }}" />
+                                </a>
                             </div>
                         @endforeach
                     </div>

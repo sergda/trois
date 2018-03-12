@@ -7,6 +7,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         @yield('head')
+        {!! HTML::style('css/lightbox.css') !!}
         {!! HTML::style('css/front.css') !!}
     </head>
 
@@ -36,7 +37,7 @@
                             {!! link_to('/world_tc', trans('front/site.world'), "title=".trans('front/site.world')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -50,7 +51,7 @@
                             {!! link_to('/collection', trans('front/site.Collection'), "title=".trans('front/site.Collection')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -65,7 +66,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -81,7 +82,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -91,10 +92,11 @@
                             </ul>
                         </li>
 
+{{--
                         <li {!! classActivePath('/order_catalogue') !!}>
                             {!! link_to('/order_catalogue', trans('front/site.OrderCatalogue'), "title=".trans('front/site.OrderCatalogue') ) !!}
                         </li>
-
+--}}
 
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" /></a>
@@ -121,8 +123,8 @@
         <div class="container text-center">
 
             <div class="fedback-button">
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Prev action</a>
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal1">Secondary action</a>
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Order Catalogue</a>
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Sign up for Newsletter</a>
             </div>
 
             <img src="/img/logo_bottom.png" class="img-fluid">
@@ -182,6 +184,7 @@
     {!! HTML::script('js/bootstrap.min.js') !!}
     {!! HTML::script('js/jqBootstrapValidation.js') !!}
     {!! HTML::script('js/jquery.form.min.js') !!}
+    {!! HTML::script('js/lightbox.js') !!}
     {!! HTML::script('js/script.js') !!}
 
 

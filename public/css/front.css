@@ -9140,3 +9140,7 @@ footer, .fedback-button {
   border-right: 4px solid transparent;
   border-left: 4px solid transparent;
 }
+.sliderBlock > div {
+  margin-bottom: 0px;
+  padding: 25px;
+}
