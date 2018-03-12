@@ -8,6 +8,8 @@ use App\Http\Requests\PostRequest;
 use Intervention\Image\Facades\Image;
 use App\Models\ImagesProject;
 use App\Repositories\TestBlockRepository;
+use App\Repositories\CollectionRepository;
+use App\Repositories\CustomerServiceRepository;
 
 class ImagesProjectController extends Controller
 {
@@ -15,12 +17,16 @@ class ImagesProjectController extends Controller
     protected $imagesProject;
     protected $testBlockRepository;
     protected $worldTcRepository;
+    protected $collectionRepository;
+    protected $customerServiceRepository;
     
-    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository)
+    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository, CollectionRepository $collectionRepository, CustomerServiceRepository $customerServiceRepository)
     {
         $this->imagesProject = $imagesProject;
         $this->testBlockRepository = $testBlockRepository;
         $this->worldTcRepository = $worldTcRepository;
+        $this->collectionRepository = $collectionRepository;
+        $this->customerServiceRepository = $customerServiceRepository;
 
         $this->middleware('admin');
         $this->middleware('redac');
@@ -72,10 +78,30 @@ class ImagesProjectController extends Controller
     public function worldtcPostAddImageItem(PostRequest $request){
 
         $post = $this->worldTcRepository->getById($request->id_el);
-        $this->authorize('changeTestblock', $post);
+        $this->authorize('changeworldTc', $post);
         //$locale = $request->getLocale();
         //if($request->hasFile($locale.'_images')){
         
+        return $this->imgSave($request);
+    }
+
+    public function collectionPostAddImageItem(PostRequest $request){
+
+        $post = $this->collectionRepository->getById($request->id_el);
+        $this->authorize('changeCollection', $post);
+        //$locale = $request->getLocale();
+        //if($request->hasFile($locale.'_images')){
+
+        return $this->imgSave($request);
+    }
+
+    public function customerServicePostAddImageItem(PostRequest $request){
+
+        $post = $this->customerServiceRepository->getById($request->id_el);
+        $this->authorize('changeCustomerservice', $post);
+        //$locale = $request->getLocale();
+        //if($request->hasFile($locale.'_images')){
+
         return $this->imgSave($request);
     }
 }

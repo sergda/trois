@@ -83,9 +83,9 @@
         </div>
         <div class="col-md-4">
             <div class="imgBlock">
-                @if (isset($fr_image))
-                    <div data-id_image="{{ $fr_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
+                @if (isset($de_image))
+                    <div data-id_image="{{ $de_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                    <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
             <form class="gallery_upload" action="/collectionaddimage" method="post" enctype="multipart/form-data">
@@ -163,8 +163,8 @@
 
         <div class="col-md-4">
             <div class="row">
-                @if (isset($fr_slider) && count($fr_slider) > 0)
-                    @foreach($fr_slider as $slide)
+                @if (isset($de_slider) && count($de_slider) > 0)
+                    @foreach($de_slider as $slide)
                         <div class="col-md-6 imgBlock">
                             <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
                             <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />

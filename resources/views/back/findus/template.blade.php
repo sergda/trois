@@ -32,7 +32,7 @@
 
             <div class="form-group {!! $errors->has('slug') ? 'has-error' : '' !!}">
                 {!! Form::label('slug', trans('back/all.permalink'), ['class' => 'control-label']) !!}
-                {!! url('/') . '/world_tc/' . Form::text('slug', null, ['id' => 'permalink']) !!}
+                {!! url('/') . '/find_us/' . Form::text('slug', null, ['id' => 'permalink']) !!}
                 <small class="text-danger">{!! $errors->first('slug') !!}</small>
             </div>
 
@@ -54,9 +54,9 @@
                     <img width="150" height="150" src="/files/{{ isset($en_image->revent_name) ? $en_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="en_images" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="images" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка английского языка') !!}
@@ -71,9 +71,9 @@
                     <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="fr_images" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="images" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка французкого языка') !!}
@@ -88,9 +88,9 @@
                     <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="de_images" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="images" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка немецкого языка') !!}
@@ -124,9 +124,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="en_slider" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="slider" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки английского языка') !!}
@@ -150,9 +150,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="fr_slider" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="slider" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки франсузкого языка') !!}
@@ -176,9 +176,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/worldtcaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/findusaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="de_slider" />
-                <input type="hidden" name="table" value="worldtcs" />
+                <input type="hidden" name="table" value="finduss" />
                 <input type="hidden" name="img_type" value="slider" />
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки неметского языка') !!}

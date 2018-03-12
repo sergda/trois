@@ -65,7 +65,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('customer_services')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -77,11 +77,11 @@
 
 
                         <li class="dropdown" {!! classActivePath('/find_us') !!}>
-                            {!! link_to('/find_us', trans('front/site.FindUs'), "title=".trans('front/site.FindUs')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
+                            {!! link_to('/find_us', trans('front/site.findus'), "title=".trans('front/site.findus')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('find_uss')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
+                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>

@@ -1,5 +1,0 @@
-select count(*) as aggregate from `posts` inner join `users` on `users`.`id` = `testblocks`.`user_id`
-Array
-(
-)
-

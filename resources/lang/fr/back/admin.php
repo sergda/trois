@@ -19,7 +19,7 @@ return [
     'new-comments' => 'Nouveaux commentaires !',
     'blog-report' => 'Rapport de blog',
     'collection' => 'Collection',
-    'customer_service' => 'Customer Service',
-    'find_us' => 'Find us',
-    'order_catalogue' => 'Order Catalogue'
+    'customerservice' => 'Customer Service',
+    'findus' => 'Find us',
+    'ordercatalogue' => 'Order Catalogue'
 ];

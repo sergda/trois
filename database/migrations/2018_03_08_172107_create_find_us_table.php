@@ -13,7 +13,7 @@ class CreateFindUsTable extends Migration
      */
     public function up()
     {
-        Schema::create('find_uss', function (Blueprint $table) {
+        Schema::create('finduss', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('en_title', 255);
@@ -34,7 +34,7 @@ class CreateFindUsTable extends Migration
             $table->integer('user_id')->unsigned();
         });
 
-        Schema::table('find_uss', function (Blueprint $table) {
+        Schema::table('finduss', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
@@ -48,10 +48,10 @@ class CreateFindUsTable extends Migration
      */
     public function down()
     {
-        Schema::table('find_uss', function (Blueprint $table) {
-            $table->dropForeign('find_uss_user_id_foreign');
+        Schema::table('finduss', function (Blueprint $table) {
+            $table->dropForeign('finduss_user_id_foreign');
         });
 
-        Schema::drop('find_uss');
+        Schema::drop('finduss');
     }
 }

@@ -134,6 +134,8 @@ return [
             'testblocks' => 2,
             'worldtcs' => 10,
             'collections' => 10,
+            'customerservices' => 10,
+            'finduss' => 10,
         ],
         'back' => [
             'posts' => 5,
@@ -142,6 +144,8 @@ return [
             'collections' => 10,
             'users' => 5,
             'comments' => 3,
+            'customerservices' => 10,
+            'finduss' => 10,
         ],
     ],
 

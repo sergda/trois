@@ -66,34 +66,34 @@ Route::post('collectionaddimage', 'ImagesProjectController@collectionPostAddImag
 
 /* ******** adm_customer_service { ************** */
 
-//Route::get('adm_customer_service/order', 'Customer_serviceController@indexOrder')->name('customer_service.order');
-//Route::resource('adm_customer_service', 'Customer_serviceController', ['except' => 'show']);
-//Route::put('adm_customer_servicepostseen/{id}', 'Customer_serviceAjaxController@updateSeen');
-//Route::put('adm_customer_servicepostactive/{id}', 'Customer_serviceAjaxController@updateActive');
+Route::get('adm_customerservice/order', 'CustomerServiceController@indexOrder')->name('customerservice.order');
+Route::resource('adm_customerservice', 'CustomerServiceController', ['except' => 'show']);
+Route::put('adm_customerservicepostseen/{id}', 'CustomerServiceAjaxController@updateSeen');
+Route::put('adm_customerservicepostactive/{id}', 'CustomerServiceAjaxController@updateActive');
 
 // rout front
-//Route::get('customer_service', 'Customer_serviceFrontController@index');
-//Route::get('customer_service/{code}', 'Customer_serviceFrontController@show')->name('customer_service.show');
+Route::get('customer_service', 'CustomerServiceFrontController@index');
+Route::get('customer_service/{code}', 'CustomerServiceFrontController@show')->name('customerservice.show');
 
 //image
-//Route::post('customer_serviceaddimage', 'ImagesProjectController@customer_servicePostAddImageItem');
+Route::post('customerserviceaddimage', 'ImagesProjectController@customerServicePostAddImageItem');
 
 /* ******** } adm_customer_service ************** */
 
 
 /* ******** adm_find_us { ************** */
 
-//Route::get('adm_find_us/order', 'Find_usController@indexOrder')->name('find_us.order');
-//Route::resource('adm_find_us', 'Find_usController', ['except' => 'show']);
-//Route::put('adm_find_uspostseen/{id}', 'Find_usAjaxController@updateSeen');
-//Route::put('adm_find_uspostactive/{id}', 'Find_usAjaxController@updateActive');
+Route::get('adm_findus/order', 'FindUsController@indexOrder')->name('findus.order');
+Route::resource('adm_findus', 'FindUsController', ['except' => 'show']);
+Route::put('adm_finduspostseen/{id}', 'FindUsAjaxController@updateSeen');
+Route::put('adm_finduspostactive/{id}', 'FindUsAjaxController@updateActive');
 
 // rout front
-//Route::get('find_us', 'Find_usFrontController@index');
-//Route::get('find_us/{code}', 'Find_usFrontController@show')->name('find_us.show');
+Route::get('find_us', 'FindUsFrontController@index');
+Route::get('find_us/{code}', 'FindUsFrontController@show')->name('findus.show');
 
 //image
-//Route::post('find_usaddimage', 'ImagesProjectController@find_usPostAddImageItem');
+Route::post('findusaddimage', 'ImagesProjectController@findUsPostAddImageItem');
 
 /* ******** } adm_find_us ************** */
 

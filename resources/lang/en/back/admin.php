@@ -21,7 +21,7 @@ return [
     'blog-report' => 'Blog Report',
     'worldtc' => 'The World of TC',
     'collection' => 'Collection',
-    'customer_service' => 'Customer Service',
-    'find_us' => 'Find us',
-    'order_catalogue' => 'Order Catalogue'
+    'customerservice' => 'Customer Service',
+    'findus' => 'Find us',
+    'ordercatalogue' => 'Order Catalogue'
 ];

@@ -7,6 +7,9 @@ use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvid
 use App\Models\Post;
 use App\Models\Testblock;
 use App\Models\Worldtc;
+use App\Models\Collection;
+use App\Models\Customerservice;
+use App\Models\Findus;
 use App\Policies\PostPolicy;
 
 class AuthServiceProvider extends ServiceProvider
@@ -20,6 +23,9 @@ class AuthServiceProvider extends ServiceProvider
         Post::class => PostPolicy::class,
         Testblock::class => PostPolicy::class,
         Worldtc::class => PostPolicy::class,
+        Collection::class => PostPolicy::class,
+        Customerservice::class => PostPolicy::class,
+        Findus::class => PostPolicy::class,
     ];
 
     /**

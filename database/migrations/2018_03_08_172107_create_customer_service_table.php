@@ -13,7 +13,7 @@ class CreateCustomerServiceTable extends Migration
      */
     public function up()
     {
-        Schema::create('customer_services', function (Blueprint $table) {
+        Schema::create('customerservices', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
             $table->string('en_title', 255);
@@ -34,7 +34,7 @@ class CreateCustomerServiceTable extends Migration
             $table->integer('user_id')->unsigned();
         });
 
-        Schema::table('customer_services', function (Blueprint $table) {
+        Schema::table('customerservices', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                         ->onDelete('restrict')
                         ->onUpdate('restrict');
@@ -48,10 +48,10 @@ class CreateCustomerServiceTable extends Migration
      */
     public function down()
     {
-        Schema::table('customer_services', function (Blueprint $table) {
-            $table->dropForeign('customer_services_user_id_foreign');
+        Schema::table('customerservices', function (Blueprint $table) {
+            $table->dropForeign('customerservices_user_id_foreign');
         });
 
-        Schema::drop('customer_services');
+        Schema::drop('customerservices');
     }
 }

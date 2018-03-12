@@ -116,24 +116,24 @@
                                 </ul>
                             </li>
 
-                            <li {!! classActiveSegment(1, 'adm_customer_service') !!}>
-                                <a href="#" data-toggle="collapse" data-target="#customer_servicemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.customer_service') }} <span class="fa fa-fw fa-caret-down"></span></a>
-                                <ul id="customer_servicemenu" class="collapse">
-                                    <li><a href="{!! url('adm_customer_service') !!}">{{ trans('back/admin.see-all') }}</a></li>
-                                    <li><a href="{!! url('adm_customer_service/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                            <li {!! classActiveSegment(1, 'adm_customerservice') !!}>
+                                <a href="#" data-toggle="collapse" data-target="#customerservicemenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.customerservice') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="customerservicemenu" class="collapse">
+                                    <li><a href="{!! url('adm_customerservice') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('adm_customerservice/create') !!}">{{ trans('back/admin.add') }}</a></li>
                                 </ul>
                             </li>
 
-                            <li {!! classActiveSegment(1, 'adm_find_us') !!}>
-                                <a href="#" data-toggle="collapse" data-target="#find_usmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.find_us') }} <span class="fa fa-fw fa-caret-down"></span></a>
-                                <ul id="find_usmenu" class="collapse">
-                                    <li><a href="{!! url('adm_find_us') !!}">{{ trans('back/admin.see-all') }}</a></li>
-                                    <li><a href="{!! url('adm_find_us/create') !!}">{{ trans('back/admin.add') }}</a></li>
+                            <li {!! classActiveSegment(1, 'adm_findus') !!}>
+                                <a href="#" data-toggle="collapse" data-target="#findusmenu"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.findus') }} <span class="fa fa-fw fa-caret-down"></span></a>
+                                <ul id="findusmenu" class="collapse">
+                                    <li><a href="{!! url('adm_findus') !!}">{{ trans('back/admin.see-all') }}</a></li>
+                                    <li><a href="{!! url('adm_findus/create') !!}">{{ trans('back/admin.add') }}</a></li>
                                 </ul>
                             </li>
 
-                            <li {!! classActivePath('adm_order_catalogue') !!}>
-                                <a href="{!! url('adm_order_catalogue') !!}"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.order_catalogue') }}</a>
+                            <li {!! classActivePath('adm_ordercatalogue') !!}>
+                                <a href="{!! url('adm_ordercatalogue') !!}"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.ordercatalogue') }}</a>
                             </li>
 
                         @if(!empty($notifications))

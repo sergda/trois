@@ -39,7 +39,7 @@ return [
     'CustomozationService'=>'Customozation	Service',
     'QualitySustainability'=>'Quality & Sustainability',
     'RegisterYourGuaranteeCode'=>'Register Your Guarantee code',
-    'FindUs'=>'Find us',
+    'findus'=>'Find us',
     'Home'=>'Home',
     'Hotel'=>'Hotel',
     'OrderCatalogue'=>'Order Catalogue'

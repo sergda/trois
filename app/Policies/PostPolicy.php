@@ -7,6 +7,8 @@ use App\Models\Testblock;
 use App\Models\Worldtc;
 use App\Models\User;
 use App\Models\Collection;
+use App\Models\Customerservice;
+use App\Models\Findus;
 
 class PostPolicy
 {
@@ -33,6 +35,14 @@ class PostPolicy
     }
 
     public function changeCollection(User $user, Collection $post)
+    {
+        return $user->id == $post->user_id;
+    }
+    public function changeCustomerservice(User $user, Customerservice $post)
+    {
+        return $user->id == $post->user_id;
+    }
+    public function changeFindus(User $user, Findus $post)
     {
         return $user->id == $post->user_id;
     }
