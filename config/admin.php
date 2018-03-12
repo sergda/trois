@@ -2,6 +2,7 @@
 
 return  [ 
     'pannels' => [
+        /*
         [
             'color' => 'primary',
             'icon' => 'envelope',
@@ -10,6 +11,7 @@ return  [
             'url' => 'contact',
             'total' => 'back/admin.messages',
         ],
+        */
         [
             'color' => 'green',
             'icon' => 'user',
@@ -18,6 +20,7 @@ return  [
             'url' => 'user/sort',
             'total' => 'back/admin.users',
         ],
+        /*
         [
             'color' => 'yellow',
             'icon' => 'pencil',
@@ -34,5 +37,6 @@ return  [
             'url' => 'comment',
             'total' => 'back/admin.comments',
         ],
+        */
     ],
 ];

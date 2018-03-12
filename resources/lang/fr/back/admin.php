@@ -17,5 +17,9 @@ return [
     'new-registers' => 'Nouveaux inscrits !',
     'new-posts' => 'Nouveaux articles !',
     'new-comments' => 'Nouveaux commentaires !',
-    'blog-report' => 'Rapport de blog'
+    'blog-report' => 'Rapport de blog',
+    'collection' => 'Collection',
+    'customer_service' => 'Customer Service',
+    'find_us' => 'Find us',
+    'order_catalogue' => 'Order Catalogue'
 ];
