@@ -8,7 +8,7 @@ $(document).on('submit', '#fedbackForm', function(e){
 
     console.log($(this).serialize());
 
-    $.post("/do/send.json", $(this).serialize(), function(data){
+    $.post("/send.json", $(this).serialize(), function(data){
         if (data.fieldErrors)
             for(error in data.fieldErrors) {
                 var input = form.find("[name="+error+"]");

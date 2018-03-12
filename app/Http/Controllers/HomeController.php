@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\PostRequest;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Input;
+
 
 class HomeController extends Controller
 {
@@ -25,13 +28,14 @@ class HomeController extends Controller
             "name" => "Имя",
 //            "phone" => "Телефон",
             "email" => "E-mail",
+            "subject" => "Заголовок",
         ];
 
 
-        if (!$request->name || !strlen($request->name) > 1)
+        if (!Input::get("name") || !strlen(Input::get("name")) > 1)
             $errors['name'] = "Введите имя";
 
-        if (!$request->email || !strlen($request->email) > 1)
+        if (!Input::get("email") || !strlen(Input::get("email")) > 1)
             $errors['email'] = "Введите email";
 /*
         if (!Input::get("phone") || !strlen(Input::get("phone")) > 1)
@@ -43,16 +47,11 @@ class HomeController extends Controller
         if (count($errors) == 0) {
             Mail::send('emails.request', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
             {
-                $config = Cache::remember('config', 600, function() {
-                    return MainPage::getInfo();
-                });
-
-                $message->to(explode(",", $config->emails))->subject('test: '. Input::get("subject") . " (" . Input::get("type") .")");
+                $message->to('bitrix_serg@mail.ru', 'Джон Смит')->subject('Test101: '. Input::get("subject") );
             });
 
             $comment = "";
             foreach($fields as $key=>$field) {
-
                 if ($key == "name" || $key == "phone")
                     continue;
 
@@ -60,7 +59,8 @@ class HomeController extends Controller
                     $comment .= $field . ": " . Input::get($key). "; ";
 
             }
-
+//			$url = $this->sendRequest(["name" => Input::get("name"), "phone" => Input::get("phone"), "email" => Input::get("email"), "comment" => $comment]);
+            
             return Response::json(array("successMessage" => "allGood", "status" => true));
 
         } else {
