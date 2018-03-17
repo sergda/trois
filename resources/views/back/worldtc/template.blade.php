@@ -223,6 +223,7 @@
         codeSnippet_theme: 'Monokai',
         language: '{{ config('app.locale') }}',
         height: 100,
+        allowedContent: true,
         filebrowserBrowseUrl: '/elfinder/ckeditor',
         toolbarGroups: [
             {name: 'clipboard', groups: ['clipboard', 'undo']},
@@ -238,7 +239,7 @@
             {name: 'paragraph', groups: ['list', 'indent', 'blocks', 'align', 'bidi']},
             {name: 'styles'},
             {name: 'colors'}
-        ]
+        ],
     };
 
     //CKEDITOR.replace('en_summary', config);
