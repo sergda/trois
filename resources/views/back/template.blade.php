@@ -133,7 +133,7 @@
                             </li>
 
                             <li {!! classActivePath('adm_ordercatalogue') !!}>
-                                <a href="{!! url('adm_ordercatalogue') !!}"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.ordercatalogue') }}</a>
+                                <a href="{!! url('adm_ordercatalogue') !!}/1/edit"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.ordercatalogue') }}</a>
                             </li>
 
                         @if(!empty($notifications))

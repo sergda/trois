@@ -9,6 +9,7 @@ use App\Models\User;
 use App\Models\Collection;
 use App\Models\Customerservice;
 use App\Models\Findus;
+use App\Models\Ordercatalogue;
 
 class PostPolicy
 {
@@ -43,6 +44,10 @@ class PostPolicy
         return $user->id == $post->user_id;
     }
     public function changeFindus(User $user, Findus $post)
+    {
+        return $user->id == $post->user_id;
+    }
+    public function orderCatalogue(User $user, Findus $post)
     {
         return $user->id == $post->user_id;
     }

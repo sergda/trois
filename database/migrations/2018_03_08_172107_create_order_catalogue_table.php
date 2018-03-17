@@ -31,6 +31,7 @@ class CreateOrderCatalogueTable extends Migration
             $table->text('de_content');
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
+            $table->boolean('is_menu')->default(false);
             $table->integer('user_id')->unsigned();
         });
 

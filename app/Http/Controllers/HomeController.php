@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\PostRequest;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Input;
-
+use Illuminate\Support\Facades\Response;
 
 class HomeController extends Controller
 {
@@ -47,7 +47,7 @@ class HomeController extends Controller
         if (count($errors) == 0) {
             Mail::send('emails.request', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
             {
-                $message->to('bitrix_serg@mail.ru', 'Джон Смит')->subject('Test101: '. Input::get("subject") );
+                $message->to('info@trois-couronnes.ch', ' ')->subject('Заявка с сайта Trois Couronnes: '. Input::get("subject") );
             });
 
             $comment = "";

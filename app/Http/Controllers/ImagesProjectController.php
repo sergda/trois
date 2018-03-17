@@ -11,6 +11,7 @@ use App\Repositories\TestBlockRepository;
 use App\Repositories\CollectionRepository;
 use App\Repositories\CustomerServiceRepository;
 use App\Repositories\FindUsRepository;
+use App\Repositories\OrderCatalogueRepository;
 
 class ImagesProjectController extends Controller
 {
@@ -21,9 +22,9 @@ class ImagesProjectController extends Controller
     protected $collectionRepository;
     protected $customerServiceRepository;
     protected $findUsRepository;
+    protected $orderCatalogueRepository;
 
-
-    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository, CollectionRepository $collectionRepository, CustomerServiceRepository $customerServiceRepository, FindUsRepository $findUsRepository)
+    public function __construct(ImagesProject $imagesProject, TestBlockRepository $testBlockRepository, WorldTcRepository $worldTcRepository, CollectionRepository $collectionRepository, CustomerServiceRepository $customerServiceRepository, FindUsRepository $findUsRepository, OrderCatalogueRepository $orderCatalogueRepository)
     {
         $this->imagesProject = $imagesProject;
         $this->testBlockRepository = $testBlockRepository;
@@ -31,7 +32,8 @@ class ImagesProjectController extends Controller
         $this->collectionRepository = $collectionRepository;
         $this->customerServiceRepository = $customerServiceRepository;
         $this->findUsRepository = $findUsRepository;
-
+        $this->orderCatalogueRepository = $orderCatalogueRepository;
+        
         $this->middleware('admin');
         $this->middleware('redac');
         $this->middleware('ajax');
@@ -42,7 +44,17 @@ class ImagesProjectController extends Controller
    //     $post = $this->testBlockRepository->getById($request->id_el);
    //     $this->authorize('changeTestblock', $post);
 
-        $this->imagesProject->find($request->id_image)->delete();
+
+        $deleteImage = $this->imagesProject
+            ->where('id', $request->id_image)
+            ->first();
+
+        if (!empty($deleteImage) && file_exists(public_path('/files/' . $deleteImage->revent_name))) {
+            unlink(public_path('/files/' . $deleteImage->revent_name));
+            $deleteImage->delete();
+        }
+
+        ///$this->imagesProject->find($request->id_image)->delete();
         return "ok";
   //      return Redirect::action('FacingPhotosController@index');
     }
@@ -72,6 +84,7 @@ class ImagesProjectController extends Controller
             $imgProject->element_id = $request->id_el;
             $imgProject->table = $request->table;
             $imgProject->field = $request->field_images;
+            $imgProject->description = $request->description;
             $imgProject->original_name = $images->getClientOriginalName();
             $imgProject->revent_name = $filename;
             $imgProject->save();
@@ -106,6 +119,12 @@ class ImagesProjectController extends Controller
     public function findUsPostAddImageItem(PostRequest $request){
         $post = $this->findUsRepository->getById($request->id_el);
         $this->authorize('changeFindus', $post);
+        return $this->imgSave($request);
+    }
+
+    public function orderCataloguePostAddImageItem(PostRequest $request){
+        $post = $this->orderCatalogueRepository->getById($request->id_el);
+        $this->authorize('changeOrderCatalogue', $post);
         return $this->imgSave($request);
     }
 }

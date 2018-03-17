@@ -4316,7 +4316,7 @@ a.badge:hover, a.badge:focus {
   color: inherit; }
 .jumbotron p {
   margin-bottom: 15px;
-  font-size: 21px;
+  font-size: 16px;
   font-weight: 200;
   color: #e7e7e7;
 }
@@ -5859,7 +5859,7 @@ hr {
 .navbar-nav {
 /*  text-transform: uppercase; */
   font-weight: 400;
-  letter-spacing: 3px; }
+  letter-spacing: 1px; }
 
 .img-full {
   min-width: 100%; }
@@ -9143,4 +9143,15 @@ footer, .fedback-button {
 .sliderBlock > div {
   margin-bottom: 0px;
   padding: 25px;
+}
+.success{
+  text-align: center;
+  padding: 20px;
+  color: green;
+}
+.sliderDescription{
+  color: #fff;
+  font-size: 25px;
+  height: 43px;
+  overflow: hidden;
 }

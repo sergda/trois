@@ -26,11 +26,12 @@ class CreateWorldTcTable extends Migration
             $table->string('fr_keywords', 255);
             $table->string('de_keywords', 255);
             $table->string('slug', 255)->unique();
-            $table->text('en_content')->default('Sorry, the page is under construction');
-            $table->text('fr_content')->default('Sorry, the page is under construction');
-            $table->text('de_content')->default('Sorry, the page is under construction');
+            $table->text('en_content');
+            $table->text('fr_content');
+            $table->text('de_content');
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
+            $table->boolean('is_menu')->default(false);
             $table->integer('user_id')->unsigned();
         });
 

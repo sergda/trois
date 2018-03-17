@@ -19,6 +19,7 @@
                     {{ trans('back/all.published') }}
                 </label>
             </div>
+
         <div class="form-group checkbox pull-right" style="margin-right: 60px;">
             <label>
                 {!! Form::checkbox('is_menu') !!}
@@ -38,7 +39,7 @@
 
             <div class="form-group {!! $errors->has('slug') ? 'has-error' : '' !!}">
                 {!! Form::label('slug', trans('back/all.permalink'), ['class' => 'control-label']) !!}
-                {!! url('/') . '/customer_service/' . Form::text('slug', null, ['id' => 'permalink']) !!}
+                {!! url('/') . '/order_catalogue/' . Form::text('slug', null, ['id' => 'permalink']) !!}
                 <small class="text-danger">{!! $errors->first('slug') !!}</small>
             </div>
 
@@ -61,9 +62,9 @@
                     <img width="150" height="150" src="/files/{{ isset($en_image->revent_name) ? $en_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="en_images" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="images" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
@@ -80,9 +81,9 @@
                     <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="fr_images" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="images" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
@@ -95,13 +96,13 @@
             <div class="imgBlock">
                 @if (isset($de_image))
                     <div data-id_image="{{ $de_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <div>{{ isset($slide->description) ? $slide->description : ''  }}</div>
+                    <div>{{ isset($de_image->description) ? $de_image->description : ''  }}</div>
                     <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="de_images" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="images" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
@@ -137,9 +138,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="en_slider" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="slider" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
@@ -165,9 +166,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="fr_slider" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="slider" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
@@ -193,9 +194,9 @@
 
             <div style="clear: both"></div>
 
-            <form class="gallery_upload" action="/customerserviceaddimage" method="post" enctype="multipart/form-data">
+            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
                 <input type="hidden" name="field_images" value="de_slider" />
-                <input type="hidden" name="table" value="customerservices" />
+                <input type="hidden" name="table" value="ordercatalogues" />
                 <input type="hidden" name="img_type" value="slider" />
                 {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />

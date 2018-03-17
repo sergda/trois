@@ -100,17 +100,17 @@ Route::post('findusaddimage', 'ImagesProjectController@findUsPostAddImageItem');
 
 /* ******** adm_order_catalogue { ************** */
 
-//Route::get('adm_order_catalogue/order', 'Order_catalogueController@indexOrder')->name('order_catalogue.order');
-//Route::resource('adm_order_catalogue', 'Order_catalogueController', ['except' => 'show']);
-//Route::put('adm_order_cataloguepostseen/{id}', 'Order_catalogueAjaxController@updateSeen');
-//Route::put('adm_order_cataloguepostactive/{id}', 'Order_catalogueAjaxController@updateActive');
+Route::get('adm_ordercatalogue/order', 'OrderCatalogueController@indexOrder')->name('ordercatalogue.order');
+Route::resource('adm_ordercatalogue', 'OrderCatalogueController', ['except' => 'show']);
+Route::put('adm_ordercataloguepostseen/{id}', 'OrderCatalogueAjaxController@updateSeen');
+Route::put('adm_ordercataloguepostactive/{id}', 'OrderCatalogueAjaxController@updateActive');
 
 // rout front
-//Route::get('order_catalogue', 'Order_catalogueFrontController@index');
-//Route::get('order_catalogue/{code}', 'Order_catalogueFrontController@show')->name('order_catalogue.show');
+Route::get('order_catalogue', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');
+Route::get('order_catalogue/{code}', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');
 
 //image
-//Route::post('order_catalogueaddimage', 'ImagesProjectController@order_cataloguePostAddImageItem');
+Route::post('ordercatalogueaddimage', 'ImagesProjectController@orderCataloguePostAddImageItem');
 
 /* ******** } adm_order_catalogue ************** */
 

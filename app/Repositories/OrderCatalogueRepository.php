@@ -2,14 +2,14 @@
 
 namespace App\Repositories;
 
-use App\Models\Customerservice;
+use App\Models\Ordercatalogue;
 use App\Models\ImagesProject;
 
-class CustomerServiceRepository extends BaseRepository
+class OrderCatalogueRepository extends BaseRepository
 {
     protected $imagesProject;
     
-    public function __construct(Customerservice $post, ImagesProject $imagesProject)
+    public function __construct(Ordercatalogue $post, ImagesProject $imagesProject)
     {
         $this->model = $post;
         $this->imagesProject = $imagesProject;
@@ -57,8 +57,8 @@ class CustomerServiceRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('customerservices.id', 'customerservices.created_at', 'en_title', 'en_description', 'en_keywords', 'customerservices.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
-            ->join('users', 'users.id', '=', 'customerservices.user_id')
+            ->select('ordercatalogues.id', 'ordercatalogues.created_at', 'en_title', 'en_description', 'en_keywords', 'ordercatalogues.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->join('users', 'users.id', '=', 'ordercatalogues.user_id')
             ->orderBy($orderby, $direction);
 
         if ($user_id) {
@@ -75,37 +75,37 @@ class CustomerServiceRepository extends BaseRepository
         $en_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
 
         $fr_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
 
         $de_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
 
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
 
         $fr_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
 
         $de_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
         
         return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');
@@ -117,37 +117,37 @@ class CustomerServiceRepository extends BaseRepository
         $en_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
 
         $fr_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
 
         $de_image = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_images')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->first();
         
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
 
         $fr_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'fr_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
 
         $de_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'de_slider')
-            ->where('table', 'customerservices')
+            ->where('table', 'ordercatalogues')
             ->get();
         
         return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');

@@ -6,8 +6,6 @@ $(document).on('submit', '#fedbackForm', function(e){
     var form = $(this);
     form.find("button").attr("disabled", true);
 
-    console.log($(this).serialize());
-
     $.post("/send.json", $(this).serialize(), function(data){
         if (data.fieldErrors)
             for(error in data.fieldErrors) {
@@ -17,7 +15,7 @@ $(document).on('submit', '#fedbackForm', function(e){
         else
         if(data.successMessage) {
             form.find(".form-group").hide();
-            form.find("modal-footer").hide();
+            form.find(".modal-footer").hide();
             form.append("<div class='success'><b>Спасибо! ваша заявка принята.</b><br />" +
                 "</div>")
             form.find("input").attr("disabled", true);

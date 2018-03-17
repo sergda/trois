@@ -33,6 +33,7 @@ class WorldTcRepository extends BaseRepository
         $post->de_content = $inputs['fr_content'];
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
+        $post->is_menu = isset($inputs['is_menu']);
         if ($user_id) {
             $post->user_id = $user_id;
         }
@@ -58,7 +59,7 @@ class WorldTcRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('worldtcs.id', 'worldtcs.created_at', 'en_title', 'en_description', 'en_keywords', 'worldtcs.seen', 'active', 'user_id', 'slug', 'username')
+            ->select('worldtcs.id', 'worldtcs.created_at', 'en_title', 'en_description', 'en_keywords', 'worldtcs.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'worldtcs.user_id')
             ->orderBy($orderby, $direction);
 

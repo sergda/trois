@@ -37,7 +37,7 @@
                             {!! link_to('/world_tc', trans('front/site.world'), "title=".trans('front/site.world')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
+                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -51,7 +51,7 @@
                             {!! link_to('/collection', trans('front/site.Collection'), "title=".trans('front/site.Collection')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
+                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -66,7 +66,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
+                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -82,7 +82,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereActive(true)->get();
+                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     <li>
@@ -92,11 +92,11 @@
                             </ul>
                         </li>
 
-{{--
+
                         <li {!! classActivePath('/order_catalogue') !!}>
                             {!! link_to('/order_catalogue', trans('front/site.OrderCatalogue'), "title=".trans('front/site.OrderCatalogue') ) !!}
                         </li>
---}}
+
 
                         <li class="dropdown">
                             <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" /></a>
@@ -138,7 +138,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Подписаться</h4>
+                        <h4 class="modal-title" id="myModalLabel">To Subcribe</h4>
                     </div>
                     <form name="sentMessage" class="form form-register1" id="fedbackForm"  novalidate>
                         {{ csrf_field() }}
@@ -147,13 +147,13 @@
 
                             <div class="control-group">
                                 <div class="controls">
-                                    <input type="text" name="name" class="form-control" onblur='if(this.value=="") this.placeholder="Ваше имя"' onfocus='if(this.value=="Ваше имя") this.value=""' placeholder="Ваше имя" id="name" required data-validation-required-message="Пожалуйста, укажите ваше имя" />
+                                    <input type="text" name="name" class="form-control" onblur='if(this.value=="") this.placeholder="Your Name"' onfocus='if(this.value=="Your Name") this.value=""' placeholder="Your Name" id="name" required data-validation-required-message="Please, indicate Your Name" />
                                     <p class="help-block"></p>
                                 </div>
                             </div>
                             <div class="control-group">
                                 <div class="controls">
-                                    <input type="email" name="email" class="form-control" onblur='if(this.value=="") this.placeholder="Ваш email"' onfocus='if(this.value=="Ваш email") this.value=""' placeholder="Ваш email" id="email" required data-validation-required-message="Пожалуйста, укажите ваш email" />
+                                    <input type="email" name="email" class="form-control" onblur='if(this.value=="") this.placeholder="Your e-mail"' onfocus='if(this.value=="Your e-mail") this.value=""' placeholder="Your e-mail" id="email" required data-validation-required-message="Please, indicate Your e-mail" />
                                 </div>
                             </div>
                             <!-- div class="control-group">
@@ -168,7 +168,7 @@
                         </div>
                         <div class="modal-footer">
                             <!-- button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button -->
-                            <input type="submit" class="btn btn-secondary form-button" value="Отправить">
+                            <input type="submit" class="btn btn-secondary form-button" value="Send">
                         </div>
                         <div id="success"> </div>
                     </form>

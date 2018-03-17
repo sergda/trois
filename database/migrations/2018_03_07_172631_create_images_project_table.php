@@ -21,6 +21,7 @@ class CreateImagesProjectTable extends Migration
             $table->string('table', 50);
             $table->string('original_name', 255);
             $table->string('revent_name', 255);
+            $table->string('description', 255);
         });
     }
 

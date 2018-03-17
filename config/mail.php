@@ -56,7 +56,7 @@ return [
     */
 
     'from' => [
-        'address' => 'hello@example.com',
+        'address' => 'bitrix_serg@mail.ru',
         'name' => 'Administrator',
     ],
 

@@ -20,6 +20,13 @@
                 </label>
             </div>
 
+        <div class="form-group checkbox pull-right" style="margin-right: 60px;">
+            <label>
+                {!! Form::checkbox('is_menu') !!}
+                в меню
+            </label>
+        </div>
+
             {!! Form::controlBootstrap('text', 0, 'en_title', $errors, trans('back/all.en_title')) !!}
             {!! Form::controlBootstrap('text', 0, 'fr_title', $errors, trans('back/all.fr_title')) !!}
         {!! Form::controlBootstrap('text', 0, 'de_title', $errors, trans('back/all.de_title')) !!}
@@ -51,6 +58,7 @@
             <div class="imgBlock">
                 @if (isset($en_image))
                     <div data-id_image="{{ $en_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                    <div>{{ isset($en_image->description) ? $en_image->description : ''  }}</div>
                     <img width="150" height="150" src="/files/{{ isset($en_image->revent_name) ? $en_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
@@ -58,6 +66,7 @@
                 <input type="hidden" name="field_images" value="en_images" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="images" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка английского языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
@@ -68,6 +77,7 @@
             <div class="imgBlock">
                 @if (isset($fr_image))
                     <div data-id_image="{{ $fr_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                    <div>{{ isset($fr_image->description) ? $fr_image->description : ''  }}</div>
                     <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
@@ -75,6 +85,7 @@
                 <input type="hidden" name="field_images" value="fr_images" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="images" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка французкого языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
@@ -85,6 +96,7 @@
             <div class="imgBlock">
                 @if (isset($de_image))
                     <div data-id_image="{{ $de_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                    <div>{{ isset($de_image->description) ? $de_image->description : ''  }}</div>
                     <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
@@ -92,6 +104,7 @@
                 <input type="hidden" name="field_images" value="de_images" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="images" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка немецкого языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
@@ -115,6 +128,7 @@
                     @foreach($en_slider as $slide)
                         <div class="col-md-6 imgBlock">
                             <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                            <div>{{ isset($slide->description) ? $slide->description : ''  }}</div>
                             <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />
                         </div>
                     @endforeach
@@ -128,6 +142,7 @@
                 <input type="hidden" name="field_images" value="en_slider" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="slider" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки английского языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
@@ -141,6 +156,7 @@
                     @foreach($fr_slider as $slide)
                         <div class="col-md-6 imgBlock">
                             <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                            <div>{{ isset($slide->description) ? $slide->description : ''  }}</div>
                             <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />
                         </div>
                     @endforeach
@@ -154,6 +170,7 @@
                 <input type="hidden" name="field_images" value="fr_slider" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="slider" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки франсузкого языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
@@ -167,6 +184,7 @@
                     @foreach($de_slider as $slide)
                         <div class="col-md-6 imgBlock">
                             <div data-id_image="{{ $slide->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
+                            <div>{{ isset($slide->description) ? $slide->description : ''  }}</div>
                             <img width="150" height="150" src="/files/{{ $slide->revent_name }}" />
                         </div>
                     @endforeach
@@ -180,6 +198,7 @@
                 <input type="hidden" name="field_images" value="de_slider" />
                 <input type="hidden" name="table" value="worldtcs" />
                 <input type="hidden" name="img_type" value="slider" />
+                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
                 <input type="hidden" name="id_el" value="{{ $post->id  }}" />
                 {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинки неметского языка') !!}
                 <input type="hidden" name="_token" value="{{ csrf_token()  }}" />

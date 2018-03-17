@@ -10,6 +10,7 @@ use App\Models\Worldtc;
 use App\Models\Collection;
 use App\Models\Customerservice;
 use App\Models\Findus;
+use App\Models\Ordercatalogue;
 use App\Policies\PostPolicy;
 
 class AuthServiceProvider extends ServiceProvider
@@ -26,6 +27,7 @@ class AuthServiceProvider extends ServiceProvider
         Collection::class => PostPolicy::class,
         Customerservice::class => PostPolicy::class,
         Findus::class => PostPolicy::class,
+        Ordercatalogue::class => PostPolicy::class,
     ];
 
     /**
