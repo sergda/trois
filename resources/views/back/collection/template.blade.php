@@ -101,6 +101,14 @@
         </div>
         <div class="clearfix"></div>
 
+{{--
+        <div>
+            <label for="feature_image">Feature Image</label>
+            <input type="text" id="feature_image" name="feature_image" value=""/>
+            <a href="" class="popup_selector" data-inputid="feature_image">Select Image</a>
+        </div>
+--}}
+
 
 
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
