@@ -26,29 +26,81 @@
             </label>
         </div>
 
-            {!! Form::controlBootstrap('text', 0, 'en_title', $errors, trans('back/all.en_title')) !!}
-            {!! Form::controlBootstrap('text', 0, 'fr_title', $errors, trans('back/all.fr_title')) !!}
-        {!! Form::controlBootstrap('text', 0, 'de_title', $errors, trans('back/all.de_title')) !!}
-        {!! Form::controlBootstrap('text', 0, 'en_description', $errors, trans('back/all.en_description')) !!}
-        {!! Form::controlBootstrap('text', 0, 'fr_description', $errors, trans('back/all.fr_description')) !!}
-        {!! Form::controlBootstrap('text', 0, 'de_description', $errors, trans('back/all.de_description')) !!}
-        {!! Form::controlBootstrap('text', 0, 'en_keywords', $errors, trans('back/all.en_keywords')) !!}
-        {!! Form::controlBootstrap('text', 0, 'fr_keywords', $errors, trans('back/all.fr_keywords')) !!}
-        {!! Form::controlBootstrap('text', 0, 'de_keywords', $errors, trans('back/all.de_keywords')) !!}
+        <div class="clearfix"></div>
 
-            <div class="form-group {!! $errors->has('slug') ? 'has-error' : '' !!}">
-                {!! Form::label('slug', trans('back/all.permalink'), ['class' => 'control-label']) !!}
-                {!! url('/') . '/customer_service/' . Form::text('slug', null, ['id' => 'permalink']) !!}
-                <small class="text-danger">{!! $errors->first('slug') !!}</small>
+
+        <div class="form-group {!! $errors->has('slug') ? 'has-error' : '' !!}">
+            {!! Form::label('slug', trans('back/all.permalink'), ['class' => 'control-label']) !!}
+            {!! url('/') . '/customer_service/' . Form::text('slug', null, ['id' => 'permalink']) !!}
+            <small class="text-danger">{!! $errors->first('slug') !!}</small>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <div clas="row">
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'en_title', $errors, trans('back/all.en_title')) !!}
             </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'fr_title', $errors, trans('back/all.fr_title')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'de_title', $errors, trans('back/all.de_title')) !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
 
-        {!! Form::controlBootstrap('textarea', 0, 'en_content', $errors, trans('back/all.en_content')) !!}
-        {!! Form::controlBootstrap('textarea', 0, 'en_content_bottom', $errors, trans('back/all.en_content_bottom')) !!}
-        {!! Form::controlBootstrap('textarea', 0, 'fr_content', $errors, trans('back/all.fr_content')) !!}
-        {!! Form::controlBootstrap('textarea', 0, 'fr_content_bottom', $errors, trans('back/all.fr_content_bottom')) !!}
-        {!! Form::controlBootstrap('textarea', 0, 'de_content', $errors, trans('back/all.de_content')) !!}
-        {!! Form::controlBootstrap('textarea', 0, 'de_content_bottom', $errors, trans('back/all.de_content_bottoom')) !!}
+        <div clas="row">
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'en_description', $errors, trans('back/all.en_description')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'fr_description', $errors, trans('back/all.fr_description')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'de_description', $errors, trans('back/all.de_description')) !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
 
+        <div clas="row">
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'en_keywords', $errors, trans('back/all.en_keywords')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'fr_keywords', $errors, trans('back/all.fr_keywords')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('text', 0, 'de_keywords', $errors, trans('back/all.de_keywords')) !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div clas="row">
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'en_content', $errors, trans('back/all.en_content')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'fr_content', $errors, trans('back/all.fr_content')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'de_content', $errors, trans('back/all.de_content')) !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
+        <div clas="row">
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'en_content_bottom', $errors, trans('back/all.en_content_bottom')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'fr_content_bottom', $errors, trans('back/all.fr_content_bottom')) !!}
+            </div>
+            <div class="col-md-4">
+                {!! Form::controlBootstrap('textarea', 0, 'de_content_bottom', $errors, trans('back/all.de_content_bottoom')) !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
     {!! Form::close() !!}
