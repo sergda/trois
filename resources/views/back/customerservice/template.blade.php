@@ -95,7 +95,7 @@
             <div class="imgBlock">
                 @if (isset($de_image))
                     <div data-id_image="{{ $de_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <div>{{ isset($slide->description) ? $slide->description : ''  }}</div>
+                    <div>{{ isset($de_image->description) ? $de_image->description : ''  }}</div>
                     <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
                 @endif
             </div>
