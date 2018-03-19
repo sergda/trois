@@ -20,6 +20,7 @@
 
     @php
         $content = $post->en_content;
+        $content_bottom = $post->en_content_bottom;
         $title = $post->en_title;
         $description = $post->en_description;
         $keywords = $post->en_keywords;
@@ -45,6 +46,7 @@
 
     @php
         $content = $post->fr_content;
+        $content_bottom = $post->fr_content_bottom;
         $title = $post->fr_title;
         $description = $post->fr_description;
         $keywords = $post->fr_keywords;
@@ -70,6 +72,7 @@
 
     @php
         $content = $post->de_content;
+        $content_bottom = $post->de_content_bottom;
         $title = $post->de_title;
         $description = $post->de_description;
         $keywords = $post->de_keywords;
@@ -121,6 +124,14 @@
                             </div>
                         @endforeach
                     </div>
+                @endif
+
+                @if( isset($content_bottom) )
+                <section class="jumbotron text-center marTB10">
+                    <div>
+                        {!! $content_bottom !!}
+                    </div>
+                </section>
                 @endif
 
 

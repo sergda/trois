@@ -42,9 +42,12 @@
                 <small class="text-danger">{!! $errors->first('slug') !!}</small>
             </div>
 
-            {!! Form::controlBootstrap('textarea', 0, 'en_content', $errors, trans('back/all.en_content')) !!}
-            {!! Form::controlBootstrap('textarea', 0, 'fr_content', $errors, trans('back/all.fr_content')) !!}
+        {!! Form::controlBootstrap('textarea', 0, 'en_content', $errors, trans('back/all.en_content')) !!}
+        {!! Form::controlBootstrap('textarea', 0, 'en_content_bottom', $errors, trans('back/all.en_content_bottom')) !!}
+        {!! Form::controlBootstrap('textarea', 0, 'fr_content', $errors, trans('back/all.fr_content')) !!}
+        {!! Form::controlBootstrap('textarea', 0, 'fr_content_bottom', $errors, trans('back/all.fr_content_bottom')) !!}
         {!! Form::controlBootstrap('textarea', 0, 'de_content', $errors, trans('back/all.de_content')) !!}
+        {!! Form::controlBootstrap('textarea', 0, 'de_content_bottom', $errors, trans('back/all.de_content_bottoom')) !!}
 
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
@@ -246,8 +249,11 @@
     config['height'] = 100;
 
     CKEDITOR.replace('en_content', config);
+    CKEDITOR.replace('en_content_bottom', config);
     CKEDITOR.replace('fr_content', config);
+    CKEDITOR.replace('fr_content_bottom', config);
     CKEDITOR.replace('de_content', config);
+    CKEDITOR.replace('de_content_bottom', config);
 
     function removeAccents(str) {
         var accent = [

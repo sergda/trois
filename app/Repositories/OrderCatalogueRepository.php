@@ -27,8 +27,11 @@ class OrderCatalogueRepository extends BaseRepository
         $post->fr_keywords = $inputs['fr_keywords'];
         $post->de_keywords = $inputs['de_keywords'];
         $post->en_content = $inputs['en_content'];
+        $post->en_content_bottom = $inputs['en_content_bottom'];
         $post->fr_content = $inputs['fr_content'];
+        $post->fr_content_bottom = $inputs['fr_content_bottom'];
         $post->de_content = $inputs['de_content'];
+        $post->de_content_bottom = $inputs['de_content_bottom'];
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         $post->is_menu = isset($inputs['is_menu']);
