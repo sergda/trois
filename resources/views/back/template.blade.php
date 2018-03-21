@@ -13,6 +13,8 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
 
         {!! HTML::style('css/back.css') !!}
+        {!! HTML::style('css/colorbox.css') !!}
+
 
         @yield('head')
 
@@ -159,6 +161,10 @@
         {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
         {!! HTML::script('/js/sweetalert.min.js') !!}
         {!! HTML::script('js/jquery.form.min.js') !!}
+        {!! HTML::script('js/jquery.colorbox-min.js') !!}
+        {!! HTML::script('/packages/barryvdh/elfinder/js/standalonepopup.min.js') !!}
+
+
 
         <script>
 
