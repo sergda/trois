@@ -42,5 +42,7 @@ return [
     'findus'=>'Händler Finden',
     'Home'=>'Home',
     'Hotel'=>'Hotel',
-    'OrderCatalogue'=>'Katalog bestellen'
+    'OrderCatalogue'=>'Katalog bestellen',
+    'feedback' => 'Katalog bestellen',
+    'feedback1' => 'Newsletter'
 ];

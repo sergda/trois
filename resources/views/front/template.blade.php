@@ -40,8 +40,21 @@
                                  $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
+                                    @if( config('app.locale') == "en" )
+                                        @php
+                                            $title = $item->en_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "fr" )
+                                        @php
+                                            $title = $item->fr_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "de" )
+                                        @php
+                                            $title = $item->de_title;
+                                        @endphp
+                                    @endif
                                     <li>
-                                        {!! link_to('/world_tc/'.$item->slug, (session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '', "title=".(session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '' ) !!}
+                                        {!! link_to('/world_tc/'.$item->slug, $title, "title=".$title ) !!}
                                     </li>
                                 @endforeach
                             </ul>
@@ -54,8 +67,21 @@
                                     $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
+                                    @if( config('app.locale') == "en" )
+                                        @php
+                                            $title = $item->en_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "fr" )
+                                        @php
+                                            $title = $item->fr_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "de" )
+                                        @php
+                                            $title = $item->de_title;
+                                        @endphp
+                                    @endif
                                     <li>
-                                        {!! link_to('/collection/'.$item->slug, (session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '', "title=".(session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '' ) !!}
+                                        {!! link_to('/collection/'.$item->slug, $title, "title=".$title ) !!}
                                     </li>
                                 @endforeach
                             </ul>
@@ -69,8 +95,21 @@
                                     $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
+                                    @if( config('app.locale') == "en" )
+                                        @php
+                                            $title = $item->en_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "fr" )
+                                        @php
+                                            $title = $item->fr_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "de" )
+                                        @php
+                                            $title = $item->de_title;
+                                        @endphp
+                                    @endif
                                     <li>
-                                        {!! link_to('/customer_service/'.$item->slug, (session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '', "title=".(session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '' ) !!}
+                                        {!! link_to('/customer_service/'.$item->slug, $title, "title=".$title ) !!}
                                     </li>
                                 @endforeach
                             </ul>
@@ -79,14 +118,26 @@
 
                         <li class="dropdown" {!! classActivePath('/find_us') !!}>
                             {!! link_to('/find_us', trans('front/site.findus'), "title=".trans('front/site.findus')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
-
                             <ul class="dropdown-menu">
                                 @php
                                     $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
+                                    @if( config('app.locale') == "en" )
+                                        @php
+                                            $title = $item->en_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "fr" )
+                                        @php
+                                            $title = $item->fr_title;
+                                        @endphp
+                                    @elseif( config('app.locale') == "de" )
+                                        @php
+                                            $title = $item->de_title;
+                                        @endphp
+                                    @endif
                                     <li>
-                                        {!! link_to('/find_us/'.$item->slug, (session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '', "title=".(session('locale') == 'en') ? $item->en_title : (session('locale') == 'fr') ? $item->fr_title : (session('locale') == 'de') ? $item->de_title : '' ) !!}
+                                        {!! link_to('/find_us/'.$item->slug, $title, "title=".$title ) !!}
                                     </li>
                                 @endforeach
                             </ul>
@@ -123,8 +174,8 @@
         <div class="container text-center">
 
             <div class="fedback-button">
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Order Catalogue</a>
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">Sign up for Newsletter</a>
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback') }} </a>
+                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback1') }} </a>
             </div>
 
             <img src="/img/logo_bottom.png" class="img-fluid">
