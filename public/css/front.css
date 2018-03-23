@@ -9160,3 +9160,12 @@ footer, .fedback-button {
 .sertificate > .col-lg-4{
   margin-bottom: 25px;
 }
+.mainText{
+  max-width: 1580px;
+  text-align: justify;
+  margin:0 auto;
+}
+.bodyText{
+  max-width: 1580px;
+  margin:0 auto;
+}

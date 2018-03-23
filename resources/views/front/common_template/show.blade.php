@@ -104,7 +104,7 @@
                 @endif
 
 
-                <section class="jumbotron text-center marTB10">
+                <section class="jumbotron text-center bodyText marTB10">
                     <div>
                         {!! $content !!}
                     </div>
@@ -127,7 +127,7 @@
                 @endif
 
                 @if( isset($content_bottom) )
-                <section class="jumbotron text-center marTB10">
+                <section class="jumbotron mainText marTB10">
                     <div>
                         {!! $content_bottom !!}
                     </div>

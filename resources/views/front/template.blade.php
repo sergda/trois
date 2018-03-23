@@ -17,9 +17,7 @@
 
         <div class="brand">
             <a href="/" title="Main">
-                <img width="470" src="/img/tc_log1.png" class="img-fluid" alt="trois">
-                {{--   <img width="470" src="/files/belmond-charleston.jpg" class="img-fluid" alt="trois"> --}}
-                {{--   <img width="470" src="/files/71CUTLnv-sL232222.jpg" class="img-fluid" alt="trois"> --}}
+                <img width="270" src="/img/tc_log1.png" class="img-fluid" alt="trois">
             </a>
         </div>
         <div id="flags" class="text-center"></div>
