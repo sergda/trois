@@ -9,6 +9,7 @@
         @yield('head')
         {!! HTML::style('css/lightbox.css') !!}
         {!! HTML::style('css/front.css') !!}
+        {!! HTML::style('css/colorbox.css') !!}
     </head>
 
   <body>
@@ -241,6 +242,8 @@
     {!! HTML::script('js/bootstrap.min.js') !!}
     {!! HTML::script('js/jqBootstrapValidation.js') !!}
     {!! HTML::script('js/jquery.form.min.js') !!}
+    {!! HTML::script('js/jquery.colorbox-min.js') !!}
+    {!! HTML::script('/packages/barryvdh/elfinder/js/standalonepopup.js') !!}
     {!! HTML::script('js/lightbox.js') !!}
     {!! HTML::script('js/query_lazyload/jquery.lazyload.min.js') !!}
     {!! HTML::script('js/script.js') !!}
