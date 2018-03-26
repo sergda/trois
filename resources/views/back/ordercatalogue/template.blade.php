@@ -37,7 +37,7 @@
 
         <div class="clearfix"></div>
 
-        <div clas="row">
+        <div classs="row">
             <div class="col-md-4">
                 {!! Form::controlBootstrap('text', 0, 'en_title', $errors, trans('back/all.en_title')) !!}
             </div>
@@ -50,7 +50,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <div clas="row">
+        <div class="row">
             <div class="col-md-4">
                 {!! Form::controlBootstrap('text', 0, 'en_description', $errors, trans('back/all.en_description')) !!}
             </div>
@@ -63,7 +63,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <div clas="row">
+        <div class="row">
             <div class="col-md-4">
                 {!! Form::controlBootstrap('text', 0, 'en_keywords', $errors, trans('back/all.en_keywords')) !!}
             </div>
@@ -76,7 +76,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <div clas="row">
+        <div class="row">
             <div class="col-md-4">
                 {!! Form::controlBootstrap('textarea', 0, 'en_content', $errors, trans('back/all.en_content')) !!}
             </div>
@@ -89,7 +89,7 @@
         </div>
         <div class="clearfix"></div>
 
-        <div clas="row">
+        <div class="row">
             <div class="col-md-4">
                 {!! Form::controlBootstrap('textarea', 0, 'en_content_bottom', $errors, trans('back/all.en_content_bottom')) !!}
             </div>
@@ -101,6 +101,40 @@
             </div>
         </div>
         <div class="clearfix"></div>
+
+        <div class="row imagePreviewBlock">
+            <div class="col-md-12"><h3>Preview Image</h3></div>
+            <div class="clearfix"></div>
+            <div class="col-md-4 imagePreviewCol">
+                <span class="close_img">&times;</span>
+                <div>
+                    <img class="en_image_input" src="{{ ( isset($post) && isset($post->en_image_input) && $post->en_image_input != '' ) ? $post->en_image_input  : '/files/no_photo.png' }}" />
+                    <input type="hidden" id="en_image_input" name="en_image_input" value="{{ ( isset($post) && isset($post->en_image_input) ) ? $post->en_image_input  : '' }}"/>
+                    <a href="" class="popup_selector" data-inputid="en_image_input">Select Preview Image</a>
+                </div>
+                {!! Form::controlBootstrap('text', 0, 'en_image_description', $errors, 'Description image') !!}
+            </div>
+            <div class="col-md-4 imagePreviewCol">
+                <span class="close_img">&times;</span>
+                <div>
+                    <img class="fr_image_input" src="{{ ( isset($post) && isset($post->fr_image_input) && $post->fr_image_input != '' ) ? $post->fr_image_input  : '/files/no_photo.png' }}" />
+                    <input type="hidden" id="fr_image_input" name="fr_image_input" value="{{ ( isset($post) && isset($post->fr_image_input) ) ? $post->fr_image_input  : '' }}"/>
+                    <a href="" class="popup_selector" data-inputid="fr_image_input">Select Preview Image</a>
+                </div>
+                {!! Form::controlBootstrap('text', 0, 'fr_image_description', $errors, 'Description image') !!}
+            </div>
+            <div class="col-md-4 imagePreviewCol">
+                <span class="close_img">&times;</span>
+                <div>
+                    <img class="de_image_input" src="{{ ( isset($post) && isset($post->de_image_input) && $post->de_image_input != '' ) ? $post->de_image_input  : '/files/no_photo.png' }}"/>
+                    <input type="hidden" id="de_image_input" name="de_image_input" value="{{ ( isset($post) && isset($post->de_image_input) ) ? $post->de_image_input  : '' }}"/>
+                    <a href="" class="popup_selector" data-inputid="de_image_input">Select Preview Image</a>
+                </div>
+                {!! Form::controlBootstrap('text', 0, 'de_image_description', $errors, 'Description image') !!}
+            </div>
+        </div>
+        <div class="clearfix"></div>
+
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
     {!! Form::close() !!}
@@ -108,65 +142,7 @@
 @if( isset($post) )
 
     <div class="row">
-        <div class="col-md-4">
-            <div class="imgBlock">
-                @if (isset($en_image))
-                    <div data-id_image="{{ $en_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <div>{{ isset($en_image->description) ? $en_image->description : ''  }}</div>
-                    <img width="150" height="150" src="/files/{{ isset($en_image->revent_name) ? $en_image->revent_name : 'no_photo.png' }}" />
-                @endif
-            </div>
-            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="field_images" value="en_images" />
-                <input type="hidden" name="table" value="ordercatalogues" />
-                <input type="hidden" name="img_type" value="images" />
-                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
-                <input type="hidden" name="id_el" value="{{ $post->id  }}" />
-                {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка английского языка') !!}
-                <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
-                <input type="submit" class="btn btn-default" value="Добавить">
-            </form>
-        </div>
-        <div class="col-md-4">
-            <div class="imgBlock">
-                @if (isset($fr_image))
-                    <div data-id_image="{{ $fr_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <div>{{ isset($fr_image->description) ? $fr_image->description : ''  }}</div>
-                    <img width="150" height="150" src="/files/{{ isset($fr_image->revent_name) ? $fr_image->revent_name : 'no_photo.png' }}" />
-                @endif
-            </div>
-            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="field_images" value="fr_images" />
-                <input type="hidden" name="table" value="ordercatalogues" />
-                <input type="hidden" name="img_type" value="images" />
-                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
-                <input type="hidden" name="id_el" value="{{ $post->id  }}" />
-                {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка французкого языка') !!}
-                <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
-                <input type="submit" class="btn btn-default" value="Добавить">
-            </form>
-        </div>
-        <div class="col-md-4">
-            <div class="imgBlock">
-                @if (isset($de_image))
-                    <div data-id_image="{{ $de_image->id }}" data-id_el="{{ $post->id }}" class="deleteImage">&times;</div>
-                    <div>{{ isset($de_image->description) ? $de_image->description : ''  }}</div>
-                    <img width="150" height="150" src="/files/{{ isset($de_image->revent_name) ? $de_image->revent_name : 'no_photo.png' }}" />
-                @endif
-            </div>
-            <form class="gallery_upload" action="/ordercatalogueaddimage" method="post" enctype="multipart/form-data">
-                <input type="hidden" name="field_images" value="de_images" />
-                <input type="hidden" name="table" value="ordercatalogues" />
-                <input type="hidden" name="img_type" value="images" />
-                {!! Form::controlBootstrap('text', 0, 'description', $errors, 'Description') !!}
-                <input type="hidden" name="id_el" value="{{ $post->id  }}" />
-                {!! Form::controlBootstrap('file', 0, 'images', $errors, 'Картинка немецкого языка') !!}
-                <input type="hidden" name="_token" value="{{ csrf_token()  }}" />
-                <input type="submit" class="btn btn-default" value="Добавить">
-            </form>
-        </div>
-    </div>
-            <br /><br />
+
             <div class="progress">
                 <div class="bar"></div>
                 <div class="percent">0%</div>
@@ -272,6 +248,16 @@
 
 
 <script>
+
+    $(document).ready(function(){
+
+        $(".close_img").on("click",function(){
+            var boxImg = $(this).parent("div.col-md-4");
+            //$(this).hide();
+            $(boxImg).find("img").attr("src","/files/no_photo.png");
+            $(boxImg).find("input").val("");
+        });
+    });
 
     var config = {
         codeSnippet_theme: 'Monokai',

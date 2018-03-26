@@ -2,14 +2,6 @@
 
 @if( config('app.locale') == "en" )
 
-    @if( isset( $en_image ) )
-
-        @php
-            $previevUrl = '/files/'.$en_image->revent_name;
-        @endphp
-
-    @endif
-
     @if( isset( $en_slider ) )
 
         @php
@@ -24,17 +16,12 @@
         $title = $post->en_title;
         $description = $post->en_description;
         $keywords = $post->en_keywords;
+
+        $previevUrl = $post->en_image_input;
+        $descriptionImage = $post->en_image_description;
     @endphp
 
 @elseif( config('app.locale') == "fr" )
-
-    @if( isset( $fr_image ) )
-
-        @php
-            $previevUrl = '/files/'.$fr_image->revent_name;
-        @endphp
-
-    @endif
 
     @if( isset( $fr_slider ) )
 
@@ -50,17 +37,11 @@
         $title = $post->fr_title;
         $description = $post->fr_description;
         $keywords = $post->fr_keywords;
+        $previevUrl = $post->fr_image_input;
+        $descriptionImage = $post->fr_image_description;
     @endphp
 
 @elseif( config('app.locale') == "de" )
-
-    @if( isset( $de_image ) )
-
-        @php
-            $previevUrl = '/files/'.$de_image->revent_name;
-        @endphp
-
-    @endif
 
     @if( isset( $de_slider ) )
 
@@ -76,6 +57,8 @@
         $title = $post->de_title;
         $description = $post->de_description;
         $keywords = $post->de_keywords;
+        $previevUrl = $post->de_image_input;
+        $descriptionImage = $post->de_image_description;
     @endphp
 
 @endif
@@ -95,46 +78,42 @@
 
 @section('main')
 
-                @if( isset($previevUrl) )
+    @if( isset($previevUrl) && $previevUrl != '' )
 
-                    <section class="text-center">
-                        <img data-original="{{  isset($previevUrl) ? $previevUrl : '' }}" src="/img/img1x1.png" class="img-fluid lazy" width="100%">
-                    </section>
+        <section class="text-center">
+            <img data-original="{{  isset($previevUrl) ? $previevUrl : '' }}" src="/img/img1x1.png" class="img-fluid lazy" width="100%">
+        </section>
 
-                @endif
-
-
-                <section class="jumbotron text-center bodyText marTB10">
-                    <div>
-                        {!! $content !!}
-                    </div>
-                </section>
+    @endif
 
 
-
-                <hr>
-                @if($slider->count())
-                    <div class="row sliderBlock text-center">
-                        @foreach($slider as $item)
-                            <div class="col-lg-4">
-                                <div class="sliderDescription">{{ $item->description }}</div>
-                                <a href="/files/{{ $item->revent_name }}" title="{{ $item->description }}" data-lightbox="roadtrip">
-                                    <img data-original="/files/{{ $item->revent_name }}" class="img-fluid lazy" src="/img/img1x1.png" alt="{{ $item->description }}" />
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                @endif
-
-                @if( isset($content_bottom) )
-                <section class="jumbotron mainText marTB10">
-                    <div>
-                        {!! $content_bottom !!}
-                    </div>
-                </section>
-                @endif
+    <section class="jumbotron text-center bodyText marTB10">
+        <div>
+            {!! $content !!}
+        </div>
+    </section>
 
 
-</div>
 
+    <hr>
+    @if($slider->count())
+        <div class="row sliderBlock text-center">
+            @foreach($slider as $item)
+                <div class="col-lg-4">
+                    <div class="sliderDescription">{{ $item->description }}</div>
+                    <a href="/files/{{ $item->revent_name }}" title="{{ $item->description }}" data-lightbox="roadtrip">
+                        <img data-original="/files/{{ $item->revent_name }}" class="img-fluid lazy" src="/img/img1x1.png" alt="{{ $item->description }}" />
+                    </a>
+                </div>
+            @endforeach
+        </div>
+    @endif
+
+    @if( isset($content_bottom) )
+        <section class="jumbotron mainText marTB10">
+            <div>
+                {!! $content_bottom !!}
+            </div>
+        </section>
+    @endif
 @stop

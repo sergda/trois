@@ -9075,3 +9075,18 @@ body.stop-scrolling {
   font-weight: bold;
   cursor: pointer;
 }
+.imagePreviewBlock{
+  overflow: hidden; padding-bottom: 20px; margin-bottom: 20px;
+}
+.imagePreviewBlock h3{
+  text-align: center;
+}
+.imagePreviewBlock .imagePreviewCol{
+  padding: 20px; border: 1px solid #ccc;
+}
+.imagePreviewBlock .close_img{
+  position: absolute; top:0; left:0; font-size: 34px; color: orangered; font-weight: bold; cursor: pointer;
+}
+.imagePreviewBlock img{
+  max-width:200px; max-height:67px;
+}

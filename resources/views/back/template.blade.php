@@ -162,7 +162,7 @@
         {!! HTML::script('/js/sweetalert.min.js') !!}
         {!! HTML::script('js/jquery.form.min.js') !!}
         {!! HTML::script('js/jquery.colorbox-min.js') !!}
-        {!! HTML::script('/packages/barryvdh/elfinder/js/standalonepopup.min.js') !!}
+        {!! HTML::script('/packages/barryvdh/elfinder/js/standalonepopup.js') !!}
 
 
 

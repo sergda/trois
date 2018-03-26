@@ -9,7 +9,6 @@
         @yield('head')
         {!! HTML::style('css/lightbox.css') !!}
         {!! HTML::style('css/front.css') !!}
-        {!! HTML::style('css/colorbox.css') !!}
     </head>
 
   <body>

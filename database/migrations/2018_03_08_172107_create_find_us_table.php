@@ -32,6 +32,12 @@ class CreateFindUsTable extends Migration
             $table->text('fr_content_bottom');
             $table->text('de_content');
             $table->text('de_content_bottom');
+            $table->string('en_image_input', 255);
+            $table->string('en_image_description', 255);
+            $table->string('fr_image_input', 255);
+            $table->string('fr_image_description', 255);
+            $table->string('de_image_input', 255);
+            $table->string('de_image_description', 255);
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->boolean('is_menu')->default(false);

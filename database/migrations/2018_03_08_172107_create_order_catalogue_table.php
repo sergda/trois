@@ -29,6 +29,12 @@ class CreateOrderCatalogueTable extends Migration
             $table->text('en_content');
             $table->text('fr_content');
             $table->text('de_content');
+            $table->string('en_image_input', 255);
+            $table->string('en_image_description', 255);
+            $table->string('fr_image_input', 255);
+            $table->string('fr_image_description', 255);
+            $table->string('de_image_input', 255);
+            $table->string('de_image_description', 255);
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->boolean('is_menu')->default(false);

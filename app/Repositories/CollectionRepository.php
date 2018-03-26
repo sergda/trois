@@ -32,6 +32,14 @@ class CollectionRepository extends BaseRepository
         $post->fr_content_bottom = $inputs['fr_content_bottom'];
         $post->de_content = $inputs['de_content'];
         $post->de_content_bottom = $inputs['de_content_bottom'];
+
+        $post->en_image_input = $inputs['en_image_input'];
+        $post->en_image_description = $inputs['en_image_description'];
+        $post->fr_image_input = $inputs['fr_image_input'];
+        $post->fr_image_description = $inputs['fr_image_description'];
+        $post->de_image_input = $inputs['de_image_input'];
+        $post->de_image_description = $inputs['de_image_description'];
+        
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         $post->is_menu = isset($inputs['is_menu']);
@@ -46,7 +54,6 @@ class CollectionRepository extends BaseRepository
     protected function queryActiveWithUserOrderByDate()
     {
         return $this->model
-            ->select('id', 'created_at', 'updated_at', 'en_title', 'fr_title', 'de_title', 'en_description', 'fr_description', 'de_description', 'en_keywords', 'fr_keywords', 'fr_keywords', 'slug', 'user_id')
             ->whereActive(true)
             ->with('user')
             ->latest();
@@ -60,7 +67,7 @@ class CollectionRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('collections.id', 'collections.created_at', 'en_title', 'en_description', 'en_keywords', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('collections.id', 'collections.created_at', 'en_title', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'collections.user_id')
             ->orderBy($orderby, $direction);
 
@@ -75,24 +82,6 @@ class CollectionRepository extends BaseRepository
     {
         $post = $this->model->with('user')->whereSlug($slug)->firstOrFail();
         
-        $en_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'en_images')
-            ->where('table', 'collections')
-            ->first();
-
-        $fr_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'fr_images')
-            ->where('table', 'collections')
-            ->first();
-
-        $de_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'de_images')
-            ->where('table', 'collections')
-            ->first();
-
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
@@ -111,29 +100,11 @@ class CollectionRepository extends BaseRepository
             ->where('table', 'collections')
             ->get();
         
-        return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');
+        return compact('post', 'en_slider', 'fr_slider', 'de_slider');
     }
 
     public function getPostWith($post)
     {
-
-        $en_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'en_images')
-            ->where('table', 'collections')
-            ->first();
-
-        $fr_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'fr_images')
-            ->where('table', 'collections')
-            ->first();
-
-        $de_image = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'de_images')
-            ->where('table', 'collections')
-            ->first();
         
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
@@ -153,7 +124,7 @@ class CollectionRepository extends BaseRepository
             ->where('table', 'collections')
             ->get();
         
-        return compact('post', 'en_image', 'fr_image', 'de_image', 'en_slider', 'fr_slider', 'de_slider');
+        return compact('post', 'en_slider', 'fr_slider', 'de_slider');
     }
 
     public function getByIdWith($id)
