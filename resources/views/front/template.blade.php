@@ -156,7 +156,11 @@
                             <ul class="dropdown-menu">
                             @foreach ( config('app.languages') as $user)
                                 @if($user !== config('app.locale'))
-                                    <li><a href="{!! url('language') !!}/{{ $user }}"><img width="18" height="18" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}"></a></li>
+                                    <li>
+                                        <a href="{!! url('language') !!}/{{ $user }}">
+                                            <img width="18" height="18" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}">
+                                        </a>
+                                    </li>
                                 @endif
                             @endforeach
                             </ul>
@@ -238,6 +242,7 @@
     {!! HTML::script('js/jqBootstrapValidation.js') !!}
     {!! HTML::script('js/jquery.form.min.js') !!}
     {!! HTML::script('js/lightbox.js') !!}
+    {!! HTML::script('js/query_lazyload/jquery.lazyload.min.js') !!}
     {!! HTML::script('js/script.js') !!}
 
 

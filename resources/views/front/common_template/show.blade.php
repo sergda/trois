@@ -98,7 +98,7 @@
                 @if( isset($previevUrl) )
 
                     <section class="text-center">
-                        <img src="{{  isset($previevUrl) ? $previevUrl : '' }}" class="img-fluid">
+                        <img data-original="{{  isset($previevUrl) ? $previevUrl : '' }}" src="/img/img1x1.png" class="img-fluid lazy" width="100%">
                     </section>
 
                 @endif
@@ -119,7 +119,7 @@
                             <div class="col-lg-4">
                                 <div class="sliderDescription">{{ $item->description }}</div>
                                 <a href="/files/{{ $item->revent_name }}" title="{{ $item->description }}" data-lightbox="roadtrip">
-                                    <img class="img-fluid" src="/files/{{ $item->revent_name }}" alt="{{ $item->description }}" />
+                                    <img data-original="/files/{{ $item->revent_name }}" class="img-fluid lazy" src="/img/img1x1.png" alt="{{ $item->description }}" />
                                 </a>
                             </div>
                         @endforeach
