@@ -14,7 +14,15 @@
 
         {!! HTML::style('css/back.css') !!}
         {!! HTML::style('css/colorbox.css') !!}
+        {!! HTML::style('css/jquery-ui.min.css') !!}
 
+        {!! HTML::script('js/jquery-3.0.0.js') !!}
+        {!! HTML::script('js/bootstrap3.3.7.min.js') !!}
+        {!! HTML::script('js/sweetalert.min.js') !!}
+        {!! HTML::script('js/jquery.form.min.js') !!}
+        {!! HTML::script('js/jquery.colorbox-min.js') !!}
+        {!! HTML::script('packages/barryvdh/elfinder/js/standalonepopup.js') !!}
+        {!! HTML::script('js/jquery-ui.min.js') !!}
 
         @yield('head')
 
@@ -156,13 +164,6 @@
             </div>
 
         </div>
-
-        {!! HTML::script('https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js') !!}
-        {!! HTML::script('https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js') !!}
-        {!! HTML::script('/js/sweetalert.min.js') !!}
-        {!! HTML::script('js/jquery.form.min.js') !!}
-        {!! HTML::script('js/jquery.colorbox-min.js') !!}
-        {!! HTML::script('/packages/barryvdh/elfinder/js/standalonepopup.js') !!}
 
 
 

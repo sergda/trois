@@ -9066,8 +9066,12 @@ body.stop-scrolling {
 
 .imgBlock{
   position: relative;
+  margin-bottom: 20px;
 }
-.deleteImage{
+.sliderBlock{
+  border: 1px solid #ccc;
+}
+.deleteImage, .deleteImageSlider{
   position: absolute;
   left: 10px;
   font-size: 30px;
