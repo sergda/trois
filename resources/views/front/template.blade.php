@@ -179,12 +179,17 @@
     <footer class="text-muted">
         <div class="container text-center">
 
+            <div class="footerLogo">
+                <span class="footerHr"></span>
+                <img src="/img/footerlogo1.png" class="img-fluid">
+            </div>
             <div class="fedback-button">
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback') }} </a>
-                <a href="#" class="btn btn-secondary" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback1') }} </a>
+                <span>
+                    <a href="#" class="" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback') }} </a>
+                    <a href="#" class="" data-toggle="modal" data-target="#myModal">{{  trans('front/site.feedback1') }} </a>
+                </span>
             </div>
 
-            <img src="/img/logo_bottom.png" class="img-fluid">
         </div>
 
 

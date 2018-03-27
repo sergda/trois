@@ -81,7 +81,7 @@
     @if( isset($previevUrl) && $previevUrl != '' )
 
         <section class="text-center">
-            <img data-original="{{  isset($previevUrl) ? $previevUrl : '' }}" src="/img/img1x1.png" class="img-fluid lazy" width="100%">
+            <img data-original="{{  isset($previevUrl) ? $previevUrl : '' }}" src="/img/img1x1.png" class="img-fluid lazy">
         </section>
 
     @endif
