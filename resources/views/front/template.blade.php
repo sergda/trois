@@ -152,13 +152,13 @@
 
 
                         <li class="dropdown">
-                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" /></a>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#"><img width="18" height="18" alt="{{ session('locale') }}"  src="{!! asset('img/' . session('locale') . '-flag.png') !!}" />&nbsp;{{ trans('front/site.'.session('locale').'_lang') }}</a>
                             <ul class="dropdown-menu">
                             @foreach ( config('app.languages') as $user)
                                 @if($user !== config('app.locale'))
                                     <li>
                                         <a href="{!! url('language') !!}/{{ $user }}">
-                                            <img width="18" height="18" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}">
+                                            <img width="18" height="18" alt="{{ $user }}" src="{!! asset('img/' . $user . '-flag.png') !!}">&nbsp;{{ trans('front/site.'.$user.'_lang') }}
                                         </a>
                                     </li>
                                 @endif

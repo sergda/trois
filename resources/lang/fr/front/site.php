@@ -55,5 +55,8 @@ Atteindre le Savoir Dormir est un art que Trois Couronnes vous propose en réuni
 Pour vous offrir un confort sans concession, Trois Couronnes met le meilleur de son savoir-faire, issu d’une longue tradition, au service de vos nuits : nos matelas et nos sommiers sont fabriqués dans les règles de l’art et bénéficient de notre souci du détail.  Les surmatelas, créés pour affiner votre confort, en sont l’aboutissement. L’ensemble de ces éléments se personnalise à votre gré en terme de dimensions, pour un véritable service “sur-mesure”. Se laisser guider parmi notre offre pour combiner ces différents éléments est la garantie de trouver le confort parfait pour chacun.
 <br /><br />
 S’endormir sur Trois Couronnes est un moment de pure délectation, à son comble lorsque matelas, sommier et surmatelas sont réunis.  Quel que soit votre choix, vous pourrez ainsi trouver l’association idéale pour profiter des bénéfices de la collection Trois Couronnes.
-    '
+    ',
+    'en_lang' => 'English',
+    'fr_lang' => 'Français',
+    'de_lang' => 'Deutsch'
 ];
