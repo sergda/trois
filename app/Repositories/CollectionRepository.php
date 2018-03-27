@@ -39,7 +39,11 @@ class CollectionRepository extends BaseRepository
         $post->fr_image_description = $inputs['fr_image_description'];
         $post->de_image_input = $inputs['de_image_input'];
         $post->de_image_description = $inputs['de_image_description'];
-        
+
+        $post->en_slide_input = $inputs['en_slide_input'];
+        $post->fr_slide_input = $inputs['fr_slide_input'];
+        $post->de_slide_input = $inputs['de_slide_input'];
+
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         $post->is_menu = isset($inputs['is_menu']);
@@ -81,7 +85,7 @@ class CollectionRepository extends BaseRepository
     public function getPostBySlug($slug)
     {
         $post = $this->model->with('user')->whereSlug($slug)->firstOrFail();
-        
+
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
@@ -99,13 +103,13 @@ class CollectionRepository extends BaseRepository
             ->where('field', 'de_slider')
             ->where('table', 'collections')
             ->get();
-        
+
         return compact('post', 'en_slider', 'fr_slider', 'de_slider');
     }
 
     public function getPostWith($post)
     {
-        
+
         $en_slider = $this->imagesProject
             ->where('element_id', $post->id)
             ->where('field', 'en_slider')
@@ -123,7 +127,7 @@ class CollectionRepository extends BaseRepository
             ->where('field', 'de_slider')
             ->where('table', 'collections')
             ->get();
-        
+
         return compact('post', 'en_slider', 'fr_slider', 'de_slider');
     }
 

@@ -39,6 +39,10 @@ class CustomerServiceRepository extends BaseRepository
         $post->fr_image_description = $inputs['fr_image_description'];
         $post->de_image_input = $inputs['de_image_input'];
         $post->de_image_description = $inputs['de_image_description'];
+
+        $post->en_slide_input = $inputs['en_slide_input'];
+        $post->fr_slide_input = $inputs['fr_slide_input'];
+        $post->de_slide_input = $inputs['de_slide_input'];
         
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
