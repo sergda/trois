@@ -135,6 +135,78 @@
         </div>
         <div class="clearfix"></div>
 
+        <div class="row" style="margin-bottom: 20px;">
+
+            <div class="col-md-4 sliderBlock">
+                <div id="en_slidexBox" class="row en_slidexBox sliderxBox">
+                    @if(isset($post) && isset($post->en_slide_input) && $post->en_slide_input != '')
+                        @foreach(json_decode(urldecode($post->en_slide_input)) as $slide )
+                            <div class="col-md-6 imgBlock">
+                                <div class="deleteImageSlider">&times;</div>
+                                <div style="text-align: center;">{{ $slide->alt  }}</div>
+                                <img src="{{ $slide->src  }}" alt="{{ $slide->alt  }}" style="width: 150px; height: 150px;"/>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <div>
+                    <label>
+                        Description
+                        <input type="text" class="descriptionSlide" value="">
+                    </label>
+                    <a href="" class="popup_selector" data-inputid="en_slidexBox">Add Image</a>
+                    <input type="hidden" class="slide_input" name="en_slide_input" value="{{ ( isset($post) && isset($post->en_slide_input) ) ? $post->en_slide_input  : '' }}"/>
+                </div>
+            </div>
+
+            <div class="col-md-4 sliderBlock">
+                <div id="fr_slidexBox" class="row fr_slidexBox sliderxBox">
+                    @if(isset($post) && isset($post->fr_slide_input) && $post->fr_slide_input != '')
+                        @foreach(json_decode(urldecode($post->fr_slide_input)) as $slide )
+                            <div class="col-md-6 imgBlock">
+                                <div class="deleteImageSlider">&times;</div>
+                                <div style="text-align: center;">{{ $slide->alt  }}</div>
+                                <img src="{{ $slide->src  }}" alt="{{ $slide->alt  }}" style="width: 150px; height: 150px;"/>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <div>
+                    <label>
+                        Description
+                        <input type="text" class="descriptionSlide" value="">
+                    </label>
+                    <a href="" class="popup_selector" data-inputid="fr_slidexBox">Add Image</a>
+                    <input type="hidden" class="slide_input" name="fr_slide_input" value="{{ ( isset($post) && isset($post->fr_slide_input) ) ? $post->fr_slide_input  : '' }}"/>
+                </div>
+            </div>
+
+            <div class="col-md-4 sliderBlock">
+                <div id="de_slidexBox" class="row de_slidexBox sliderxBox">
+                    @if(isset($post) && isset($post->de_slide_input) && $post->de_slide_input != '')
+                        @foreach(json_decode(urldecode($post->de_slide_input)) as $slide )
+                            <div class="col-md-6 imgBlock">
+                                <div class="deleteImageSlider">&times;</div>
+                                <div style="text-align: center;">{{ $slide->alt  }}</div>
+                                <img src="{{ $slide->src  }}" alt="{{ $slide->alt  }}" style="width: 150px; height: 150px;"/>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <div>
+                    <label>
+                        Description
+                        <input type="text" class="descriptionSlide" value="">
+                    </label>
+                    <a href="" class="popup_selector" data-inputid="de_slidexBox">Add Image</a>
+                    <input type="hidden" class="slide_input" name="de_slide_input" value="{{ ( isset($post) && isset($post->de_slide_input) ) ? $post->de_slide_input  : '' }}"/>
+                </div>
+            </div>
+
+
+        </div>
+        <div class="clearfix"></div>
+
         {!! Form::submitBootstrap(trans('front/form.send')) !!}
 
     {!! Form::close() !!}
