@@ -9130,6 +9130,18 @@ footer, .fedback-button {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
+.fedback-button {
+  position: relative;
+}
+.fedback-button a{
+  color: #fff;
+  margin: 0 10px;
+}
+.fedback-button span{
+  position: absolute;
+  left: 48%;
+}
+
 .dropdown-toggle:after{
   content:'';
   display: inline-block;
@@ -9168,4 +9180,21 @@ footer, .fedback-button {
 .bodyText{
   max-width: 1580px;
   margin:0 auto;
+}
+.footerLogo{
+  height: 80px;
+  position: relative;
+}
+.footerLogo .footerHr{
+  width: 100%;
+  border-bottom: 1px solid #363435;
+  height: 1px;
+  display: inline-block;
+  margin-top: 40px;
+}
+.footerLogo img{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -45px;
 }
