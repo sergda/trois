@@ -34,7 +34,7 @@ return [
     'Headboards'=>'Headboards',
     'Accessories'=>'Accessories',
     'CoverMaterials'=>'Cover Materials',
-    'CustomerService'=>'Customer Service',
+    'CustomerService'=>'Аctivités de service',
     'OurPromices'=>'Our Promices',
     'CustomozationService'=>'Аctivités de service',
     'QualitySustainability'=>'Quality & Sustainability',

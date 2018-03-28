@@ -85,50 +85,13 @@ class CustomerServiceRepository extends BaseRepository
     public function getPostBySlug($slug)
     {
         $post = $this->model->with('user')->whereSlug($slug)->firstOrFail();
-
-        $en_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'en_slider')
-            ->where('table', 'customerservices')
-            ->get();
-
-        $fr_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'fr_slider')
-            ->where('table', 'customerservices')
-            ->get();
-
-        $de_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'de_slider')
-            ->where('table', 'customerservices')
-            ->get();
         
-        return compact('post', 'en_slider', 'fr_slider', 'de_slider');
+        return compact('post');
     }
 
     public function getPostWith($post)
     {
-        
-        $en_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'en_slider')
-            ->where('table', 'customerservices')
-            ->get();
-
-        $fr_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'fr_slider')
-            ->where('table', 'customerservices')
-            ->get();
-
-        $de_slider = $this->imagesProject
-            ->where('element_id', $post->id)
-            ->where('field', 'de_slider')
-            ->where('table', 'customerservices')
-            ->get();
-        
-        return compact('post', 'en_slider', 'fr_slider', 'de_slider');
+        return compact('post');
     }
 
     public function getByIdWith($id)

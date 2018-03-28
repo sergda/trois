@@ -2,34 +2,18 @@
 
 @if( config('app.locale') == "en" )
 
-    @if( isset( $en_slider ) )
-
-        @php
-            $slider = $en_slider;
-        @endphp
-
-    @endif
-
     @php
         $content = $post->en_content;
         $content_bottom = $post->en_content_bottom;
         $title = $post->en_title;
         $description = $post->en_description;
         $keywords = $post->en_keywords;
-
         $previevUrl = $post->en_image_input;
         $descriptionImage = $post->en_image_description;
+        $slider = $post->en_slide_input;
     @endphp
 
 @elseif( config('app.locale') == "fr" )
-
-    @if( isset( $fr_slider ) )
-
-        @php
-            $slider = $fr_slider;
-        @endphp
-
-    @endif
 
     @php
         $content = $post->fr_content;
@@ -39,18 +23,10 @@
         $keywords = $post->fr_keywords;
         $previevUrl = $post->fr_image_input;
         $descriptionImage = $post->fr_image_description;
+        $slider = $post->fr_slide_input;
     @endphp
 
 @elseif( config('app.locale') == "de" )
-
-    @if( isset( $de_slider ) )
-
-        @php
-            $slider = $de_slider;
-        @endphp
-
-    @endif
-
     @php
         $content = $post->de_content;
         $content_bottom = $post->de_content_bottom;
@@ -59,6 +35,7 @@
         $keywords = $post->de_keywords;
         $previevUrl = $post->de_image_input;
         $descriptionImage = $post->de_image_description;
+        $slider = $post->de_slide_input;
     @endphp
 
 @endif
@@ -96,13 +73,13 @@
 
 
     <hr>
-    @if($slider->count())
+    @if(isset($slider) &&  $slider != '')
         <div class="row sliderBlock text-center">
-            @foreach($slider as $item)
+            @foreach(json_decode(urldecode($slider)) as $item)
                 <div class="col-lg-4">
-                    <div class="sliderDescription">{{ $item->description }}</div>
-                    <a href="/files/{{ $item->revent_name }}" title="{{ $item->description }}" data-lightbox="roadtrip">
-                        <img data-original="/files/{{ $item->revent_name }}" class="img-fluid lazy" src="/img/img1x1.png" alt="{{ $item->description }}" />
+                    <div class="sliderDescription">{{ $item->alt }}</div>
+                    <a href="{{ $item->src }}" title="{{ $item->alt }}" data-lightbox="roadtrip">
+                        <img data-original="{{ $item->src }}" class="img-fluid lazy" src="/img/img1x1.png" alt="{{ $item->alt }}" />
                     </a>
                 </div>
             @endforeach
