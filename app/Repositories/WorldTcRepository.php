@@ -46,6 +46,8 @@ class WorldTcRepository extends BaseRepository
         $post->fr_slide_input = $inputs['fr_slide_input'];
         $post->de_slide_input = $inputs['de_slide_input'];
 
+        $post->sort = $inputs['sort'];
+
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         $post->is_menu = isset($inputs['is_menu']);
@@ -73,7 +75,7 @@ class WorldTcRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('worldtcs.id', 'worldtcs.created_at', 'en_title', 'worldtcs.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('worldtcs.id', 'worldtcs.created_at', 'sort', 'en_title', 'worldtcs.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'worldtcs.user_id')
             ->orderBy($orderby, $direction);
 

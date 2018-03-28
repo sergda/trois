@@ -23,6 +23,12 @@
                 <span class="fa fa-fw fa-{{ $order->name == 'finduss.en_title' ? $order->sens : 'unsorted'}}"></span>
               </a>
             </th>
+              <th>
+                  Sort
+                  <a href="#" name="sort" class="order">
+                      <span class="fa fa-fw fa-{{ $order->name == 'collections.sort' ? $order->sens : 'unsorted'}}"></span>
+                  </a>
+              </th>
             <th>
               {{ trans('back/all.date') }}
               <a href="#" name="created_at" class="order">

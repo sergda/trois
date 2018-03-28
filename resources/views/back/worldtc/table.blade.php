@@ -1,6 +1,7 @@
 @foreach ($items as $post)
     <tr {!! !$post->seen && session('statut') == 'admin'? 'class="warning"' : '' !!}>
         <td class="text-primary"><strong>{{ $post->en_title }}</strong></td>
+        <td>{{ $post->sort }}</td>
         <td>{{ $post->created_at }}</td> 
         <td>{!! Form::checkbox('active', $post->id, $post->active) !!}</td>
         @if(session('statut') == 'admin')

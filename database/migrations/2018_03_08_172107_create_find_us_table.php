@@ -41,6 +41,7 @@ class CreateFindUsTable extends Migration
             $table->text('en_slide_input');
             $table->text('fr_slide_input');
             $table->text('de_slide_input');
+            $table->integer('sort')->default(500);
             $table->boolean('seen')->default(false);
             $table->boolean('active')->default(false);
             $table->boolean('is_menu')->default(false);

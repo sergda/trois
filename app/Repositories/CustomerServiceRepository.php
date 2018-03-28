@@ -43,6 +43,8 @@ class CustomerServiceRepository extends BaseRepository
         $post->en_slide_input = $inputs['en_slide_input'];
         $post->fr_slide_input = $inputs['fr_slide_input'];
         $post->de_slide_input = $inputs['de_slide_input'];
+
+        $post->sort = $inputs['sort'];
         
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
@@ -71,7 +73,7 @@ class CustomerServiceRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('customerservices.id', 'customerservices.created_at', 'en_title', 'customerservices.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('customerservices.id', 'customerservices.created_at', 'sort', 'en_title', 'customerservices.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'customerservices.user_id')
             ->orderBy($orderby, $direction);
 

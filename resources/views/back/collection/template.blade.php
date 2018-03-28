@@ -26,6 +26,13 @@
             </label>
         </div>
 
+        <div class="form-group checkbox pull-right" style="margin-right: 60px; font-weight: bold;">
+            <label>
+                Sort
+                <input style="width:70px;" type="number" id="sort" name="sort" value="{{ ( isset($post) && isset($post->sort) ) ? $post->sort  : '' }}" required/>
+            </label>
+        </div>
+
         <div class="clearfix"></div>
 
         <div class="form-group {!! $errors->has('slug') ? 'has-error' : '' !!}">

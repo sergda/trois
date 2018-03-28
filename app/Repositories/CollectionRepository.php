@@ -44,6 +44,8 @@ class CollectionRepository extends BaseRepository
         $post->fr_slide_input = $inputs['fr_slide_input'];
         $post->de_slide_input = $inputs['de_slide_input'];
 
+        $post->sort = $inputs['sort'];
+
         $post->slug = $inputs['slug'];
         $post->active = isset($inputs['active']);
         $post->is_menu = isset($inputs['is_menu']);
@@ -71,7 +73,7 @@ class CollectionRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('collections.id', 'collections.created_at', 'en_title', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('collections.id', 'collections.created_at', 'en_title', 'sort', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'collections.user_id')
             ->orderBy($orderby, $direction);
 

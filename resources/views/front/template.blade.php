@@ -39,7 +39,7 @@
                             {!! link_to('/world_tc', trans('front/site.world'), "title=".trans('front/site.world')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
+                                 $worldtcs = DB::table('worldtcs')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->orderBy('sort', 'asc')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     @if( config('app.locale') == "en" )
@@ -66,7 +66,7 @@
                             {!! link_to('/collection', trans('front/site.Collection'), "title=".trans('front/site.Collection')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
+                                    $worldtcs = DB::table('collections')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->orderBy('sort', 'asc')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     @if( config('app.locale') == "en" )
@@ -94,7 +94,7 @@
 
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
+                                    $worldtcs = DB::table('customerservices')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->orderBy('sort', 'asc')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     @if( config('app.locale') == "en" )
@@ -122,7 +122,7 @@
                             {!! link_to('/find_us', trans('front/site.findus'), "title=".trans('front/site.findus')." data-toggle='dropdown' class='dropdown-toggle'" ) !!}
                             <ul class="dropdown-menu">
                                 @php
-                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->get();
+                                    $worldtcs = DB::table('finduss')->select('slug', 'en_title', 'fr_title', 'de_title')->whereIs_menu(true)->whereActive(true)->orderBy('sort', 'asc')->get();
                                 @endphp
                                 @foreach( $worldtcs as $item )
                                     @if( config('app.locale') == "en" )
