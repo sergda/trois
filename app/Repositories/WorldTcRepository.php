@@ -75,7 +75,7 @@ class WorldTcRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('worldtcs.id', 'worldtcs.created_at', 'sort', 'en_title', 'worldtcs.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('worldtcs.id', 'worldtcs.created_at', 'sort', 'en_title', 'fr_title', 'de_title', 'worldtcs.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'worldtcs.user_id')
             ->orderBy($orderby, $direction);
 
@@ -139,6 +139,15 @@ class WorldTcRepository extends BaseRepository
         $post = $this->getById($id);
 
         $post->active = $inputs['active'] == 'true';
+
+        $post->save();
+    }
+
+    public function updateIsMenu($inputs, $id)
+    {
+        $post = $this->getById($id);
+
+        $post->is_menu = $inputs['is_menu'] == 'true';
 
         $post->save();
     }

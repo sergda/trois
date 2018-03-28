@@ -73,7 +73,7 @@ class CollectionRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('collections.id', 'collections.created_at', 'en_title', 'sort', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('collections.id', 'collections.created_at', 'en_title', 'fr_title', 'de_title', 'sort', 'collections.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'collections.user_id')
             ->orderBy($orderby, $direction);
 
@@ -121,6 +121,15 @@ class CollectionRepository extends BaseRepository
         $post = $this->getById($id);
 
         $post->active = $inputs['active'] == 'true';
+
+        $post->save();
+    }
+
+    public function updateIsMenu($inputs, $id)
+    {
+        $post = $this->getById($id);
+
+        $post->is_menu = $inputs['is_menu'] == 'true';
 
         $post->save();
     }

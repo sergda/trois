@@ -16,7 +16,8 @@ class CollectionAjaxController extends Controller
         
         $this->middleware('admin')->only('updateSeen');
         $this->middleware('admin')->only('update');
-        $this->middleware('redac')->only('updateActive');
+        $this->middleware('admin')->only('updateActive');
+        $this->middleware('admin')->only('updateIsMenu');
         $this->middleware('ajax');
     }
 
@@ -34,6 +35,13 @@ class CollectionAjaxController extends Controller
         $this->authorize('change', $post);
         
         $this->collectionRepository->updateActive($request->all(), $id);
+
+        return response()->json();
+    }
+
+    public function updateIsMenu(Request $request, $id)
+    {
+        $this->collectionRepository->updateIsMenu($request->all(), $id);
 
         return response()->json();
     }

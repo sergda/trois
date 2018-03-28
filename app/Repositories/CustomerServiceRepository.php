@@ -73,7 +73,7 @@ class CustomerServiceRepository extends BaseRepository
     public function getPostsWithOrder($n, $user_id = null, $orderby = 'created_at', $direction = 'desc')
     {
         $query = $this->model
-            ->select('customerservices.id', 'customerservices.created_at', 'sort', 'en_title', 'customerservices.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
+            ->select('customerservices.id', 'customerservices.created_at', 'sort', 'en_title', 'fr_title', 'de_title', 'customerservices.seen', 'active', 'is_menu', 'user_id', 'slug', 'username')
             ->join('users', 'users.id', '=', 'customerservices.user_id')
             ->orderBy($orderby, $direction);
 
@@ -120,6 +120,15 @@ class CustomerServiceRepository extends BaseRepository
         $post = $this->getById($id);
 
         $post->active = $inputs['active'] == 'true';
+
+        $post->save();
+    }
+
+    public function updateIsMenu($inputs, $id)
+    {
+        $post = $this->getById($id);
+
+        $post->is_menu = $inputs['is_menu'] == 'true';
 
         $post->save();
     }

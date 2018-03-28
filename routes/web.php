@@ -10,10 +10,8 @@ Route::get('language/{lang}', 'LanguageController')
 // Admin
 Route::get('admin', 'AdminController')->name('admin');
 
-
 // Medias
 Route::get('medias', 'FilemanagerController')->name('medias');
-
 
 // TestBlock
 //Route::get('block-test/tag', 'TestBlockFrontController@tag');
@@ -27,16 +25,13 @@ Route::put('testblockpostactive/{id}', 'TestBlockAjaxController@updateActive');
 Route::get('block-test', 'TestBlockFrontController@index');
 Route::get('block-test/{testblock}', 'TestBlockFrontController@show')->name('testblock.show');
 
-
-
-
-
 /* ******** World Tc { ************** */
 
 Route::get('worldtc/order', 'WorldTcController@indexOrder')->name('worldtc.order');
 Route::resource('worldtc', 'WorldTcController', ['except' => 'show']);
 Route::put('worldtcpostseen/{id}', 'WorldTcAjaxController@updateSeen');
 Route::put('worldtcpostactive/{id}', 'WorldTcAjaxController@updateActive');
+Route::put('worldtcpostis_menu/{id}', 'WorldTcAjaxController@updateIsMenu');
 
 // rout front
 Route::get('world_tc', 'WorldTcFrontController@index');
@@ -53,7 +48,7 @@ Route::get('adm_collection/order', 'CollectionController@indexOrder')->name('col
 Route::resource('adm_collection', 'CollectionController', ['except' => 'show']);
 Route::put('adm_collectionpostseen/{id}', 'CollectionAjaxController@updateSeen');
 Route::put('adm_collectionpostactive/{id}', 'CollectionAjaxController@updateActive');
-
+Route::put('adm_collectionpostis_menu/{id}', 'CollectionAjaxController@updateIsMenu');
 // rout front
 Route::get('collection', 'CollectionFrontController@index');
 Route::get('collection/{code}', 'CollectionFrontController@show')->name('collection.show');
@@ -70,7 +65,7 @@ Route::get('adm_customerservice/order', 'CustomerServiceController@indexOrder')-
 Route::resource('adm_customerservice', 'CustomerServiceController', ['except' => 'show']);
 Route::put('adm_customerservicepostseen/{id}', 'CustomerServiceAjaxController@updateSeen');
 Route::put('adm_customerservicepostactive/{id}', 'CustomerServiceAjaxController@updateActive');
-
+Route::put('adm_customerservicepostis_menu/{id}', 'CustomerServiceAjaxController@updateIsMenu');
 // rout front
 Route::get('customer_service', 'CustomerServiceFrontController@index');
 Route::get('customer_service/{code}', 'CustomerServiceFrontController@show')->name('customerservice.show');
@@ -87,7 +82,7 @@ Route::get('adm_findus/order', 'FindUsController@indexOrder')->name('findus.orde
 Route::resource('adm_findus', 'FindUsController', ['except' => 'show']);
 Route::put('adm_finduspostseen/{id}', 'FindUsAjaxController@updateSeen');
 Route::put('adm_finduspostactive/{id}', 'FindUsAjaxController@updateActive');
-
+Route::put('adm_finduspostis_menu/{id}', 'FindUsAjaxController@updateIsMenu');
 // rout front
 Route::get('find_us', 'FindUsFrontController@index');
 Route::get('find_us/{code}', 'FindUsFrontController@show')->name('findus.show');
@@ -104,7 +99,7 @@ Route::get('adm_ordercatalogue/order', 'OrderCatalogueController@indexOrder')->n
 Route::resource('adm_ordercatalogue', 'OrderCatalogueController', ['except' => 'show']);
 Route::put('adm_ordercataloguepostseen/{id}', 'OrderCatalogueAjaxController@updateSeen');
 Route::put('adm_ordercataloguepostactive/{id}', 'OrderCatalogueAjaxController@updateActive');
-
+Route::put('adm_ordercataloguepostis_menu/{id}', 'OrderCatalogueAjaxController@updateIsMenu');
 // rout front
 Route::get('order_catalogue', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');
 Route::get('order_catalogue/{code}', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');

@@ -16,7 +16,8 @@ class OrderCatalogueAjaxController extends Controller
         
         $this->middleware('admin')->only('updateSeen');
         $this->middleware('admin')->only('update');
-        $this->middleware('redac')->only('updateActive');
+        $this->middleware('admin')->only('updateActive');
+        $this->middleware('admin')->only('updateIsMenu');
         $this->middleware('ajax');
     }
 
@@ -34,6 +35,13 @@ class OrderCatalogueAjaxController extends Controller
         $this->authorize('change', $post);
         
         $this->orderCatalogueRepository->updateActive($request->all(), $id);
+
+        return response()->json();
+    }
+    
+    public function updateIsMenu(Request $request, $id)
+    {
+        $this->orderCatalogueRepository->updateIsMenu($request->all(), $id);
 
         return response()->json();
     }

@@ -16,7 +16,8 @@ class CustomerServiceAjaxController extends Controller
         
         $this->middleware('admin')->only('updateSeen');
         $this->middleware('admin')->only('update');
-        $this->middleware('redac')->only('updateActive');
+        $this->middleware('admin')->only('updateActive');
+        $this->middleware('admin')->only('updateIsMenu');
         $this->middleware('ajax');
     }
 
@@ -34,6 +35,13 @@ class CustomerServiceAjaxController extends Controller
         $this->authorize('change', $post);
         
         $this->customerServiceRepository->updateActive($request->all(), $id);
+
+        return response()->json();
+    }
+    
+    public function updateIsMenu(Request $request, $id)
+    {
+        $this->customerServiceRepository->updateIsMenu($request->all(), $id);
 
         return response()->json();
     }

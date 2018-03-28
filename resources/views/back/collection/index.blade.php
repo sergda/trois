@@ -17,12 +17,24 @@
       <table class="table">
         <thead>
           <tr>
-            <th>
-              {{ trans('back/all.title') }}
-              <a href="#" name="title" class="order">
-                <span class="fa fa-fw fa-{{ $order->name == 'collections.en_title' ? $order->sens : 'unsorted'}}"></span>
-              </a>
-            </th>
+              <th>
+                  title_en
+                  <a href="#" name="title" class="order">
+                      <span class="fa fa-fw fa-{{ $order->name == 'collections.en_title' ? $order->sens : 'unsorted'}}"></span>
+                  </a>
+              </th>
+              <th>
+                  title_fr
+                  <a href="#" name="title" class="order">
+                      <span class="fa fa-fw fa-{{ $order->name == 'collections.fr_title' ? $order->sens : 'unsorted'}}"></span>
+                  </a>
+              </th>
+              <th>
+                  title_de
+                  <a href="#" name="title" class="order">
+                      <span class="fa fa-fw fa-{{ $order->name == 'collections.de_title' ? $order->sens : 'unsorted'}}"></span>
+                  </a>
+              </th>
               <th>
                   Sort
                   <a href="#" name="sort" class="order">
@@ -43,18 +55,18 @@
             </th> 
             @if(session('statut') == 'admin')
               <th>
-                {{ trans('back/all.author') }}
-                <a href="#" name="username" class="order">
-                  <span class="fa fa-fw fa-{{ $order->name == 'username' ? $order->sens : 'unsorted'}}"></span>
-                </a>
-              </th>            
-              <th>
                 {{ trans('back/all.seen') }}
                 <a href="#" name="seen" class="order">
                   <span class="fa fa-fw fa-{{ $order->name == 'collections.seen' ? $order->sens : 'unsorted'}}"></span>
                 </a>
               </th>
             @endif
+              <th>
+                  is_menu
+                  <a href="#" name="collections.is_menu" class="order">
+                      <span class="fa fa-fw fa-{{ $order->name == 'collections.is_menu' ? $order->sens : 'unsorted'}}"></span>
+                  </a>
+              </th>
             <th></th>
             <th></th>
             <th></th>
@@ -118,6 +130,26 @@
                 chk.show().prop('checked', chk.is(':checked') ? null:'checked').parents('tr').toggleClass('warning');
                 alert('{{ trans('back/all.fail') }}');
             });
+        });
+
+        $(document).on('change', ':checkbox[name="is_menu"]', function() {
+            $(this).parents('tr').toggleClass('warning');
+            $(this).hide().parent().append('<i class="fa fa-refresh fa-spin"></i>');
+            $.ajax({
+                url: '{{ url('adm_collectionpostis_menu') }}' + '/' + this.value,
+                type: 'PUT',
+                data: "is_menu=" + this.checked
+            })
+                    .done(function() {
+                        $('.fa-spin').remove();
+                        $('input:checkbox[name="is_menu"]:hidden').show();
+                    })
+                    .fail(function() {
+                        $('.fa-spin').remove();
+                        chk = $('input:checkbox[name="is_menu"]:hidden');
+                        chk.show().prop('checked', chk.is(':checked') ? null:'checked').parents('tr').toggleClass('warning');
+                        alert('{{ trans('back/all.fail') }}');
+                    });
         });
 
         // Sorting gestion
