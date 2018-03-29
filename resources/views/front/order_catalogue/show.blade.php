@@ -14,7 +14,7 @@
     </span>
 @stop
 @section('main')
-    <section class="jumbotron text-center bodyText marTB10" style="margin-bottom: 125px;">
+    <section class="jumbotron text-center bodyText marTB10" style="margin-bottom: 125px; z-index: 3;  position: relative;">
         <div>
             <div>{{ trans('front/site.orderCatalogueTitle') }}</div>
             <hr>

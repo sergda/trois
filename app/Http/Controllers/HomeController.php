@@ -53,7 +53,7 @@ class HomeController extends Controller
 */
         if (count($errors) == 0) {
 
-            $templates = (Input::get("catalogueFeedback")) ? 'emails_admin' : 'emails.request' ;
+            $templates = (Input::get("catalogueFeedback")) ? 'emails.catalogue_admin' : 'emails.request' ;
 
             Mail::send($templates, ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
             {
@@ -61,7 +61,7 @@ class HomeController extends Controller
             });
 
             if(Input::get("catalogueFeedback")){
-                Mail::send('emails_client', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
+                Mail::send('emails.catalogue_client', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
                 {
                     $message->to(Input::get("email"), ' ')->subject('Trois Couronnes: Thank you! code accepted' );
                 });

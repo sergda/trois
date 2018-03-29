@@ -16,7 +16,7 @@ $(document).on('submit', '#fedbackForm', function(e){
         if(data.successMessage) {
             form.find(".form-group").hide();
             form.find(".modal-footer").hide();
-            form.append("<div class='success'><b>Спасибо! ваша заявка принята.</b><br />" +
+            form.append("<div class='success'><b>Thank you! Your application is accepted.</b><br />" +
                 "</div>")
             form.find("input").attr("disabled", true);
         }
@@ -38,7 +38,7 @@ $(document).on('submit', '#fedbackForm', function(e){
             if(data.successMessage) {
                 form.find(".form-group").hide();
                 form.find(".modal-footer").hide();
-                form.append("<div class='success'><b>Спасибо! ваша заявка принята.</b><br />" +
+                form.append("<div class='success'><b>Thank you! Your application is accepted.</b><br />" +
                     "</div>")
                 form.find("input").attr("disabled", true);
             }
