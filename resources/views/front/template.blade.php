@@ -146,8 +146,8 @@
                         </li>
 
 
-                        <li {!! classActivePath('/order_catalogue') !!}>
-                            {!! link_to('/order_catalogue', trans('front/site.OrderCatalogue'), "title=".trans('front/site.OrderCatalogue') ) !!}
+                        <li {!! classActivePath('/order-catalogue') !!}>
+                            {!! link_to('/order-catalogue', trans('front/site.OrderCatalogue'), "title=".trans('front/site.OrderCatalogue') ) !!}
                         </li>
 
 
