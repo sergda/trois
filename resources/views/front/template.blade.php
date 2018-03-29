@@ -171,7 +171,7 @@
         </nav>
         @yield('header')    
     </header>
-
+    @yield('body')
     <main class="container">
         @yield('main')
     </main>

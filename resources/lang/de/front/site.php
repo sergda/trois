@@ -59,5 +59,8 @@ Auf Trois Couronnes einzuschlafen ist ein Moment, der zu einem reinen Hochgenuss
     ',
     'en_lang' => 'English',
     'fr_lang' => 'Français',
-    'de_lang' => 'Deutsch'
+    'de_lang' => 'Deutsch',
+    'orderCatalogueTitle' => 'Registriere Garantiekarte',
+    'orderCatalogueKeywords' => 'Registriere Garantiekarte',
+    'orderCatalogueDescription' => 'Registriere Garantiekarte',
 ];

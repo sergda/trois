@@ -142,10 +142,6 @@
                                 </ul>
                             </li>
 
-                            <li {!! classActivePath('adm_ordercatalogue') !!}>
-                                <a href="{!! url('adm_ordercatalogue') !!}/1/edit"><span class="fa fa-fw fa-pencil"></span> {{ trans('back/admin.ordercatalogue') }}</a>
-                            </li>
-
                         @if(!empty($notifications))
                             <li><a href="{!! url('notifications/' . auth()->id()) !!}"><span class="fa fa-fw fa-bell-o"></span> Notifications</a></li>
                         @endif

@@ -58,5 +58,8 @@ S’endormir sur Trois Couronnes est un moment de pure délectation, à son comb
     ',
     'en_lang' => 'English',
     'fr_lang' => 'Français',
-    'de_lang' => 'Deutsch'
+    'de_lang' => 'Deutsch',
+    'orderCatalogueTitle' => 'Enregistrment de la garantie',
+    'orderCatalogueKeywords' => 'Enregistrment de la garantie',
+    'orderCatalogueDescription' => 'Enregistrment de la garantie',
 ];

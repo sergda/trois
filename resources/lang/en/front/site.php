@@ -58,5 +58,8 @@ Going to sleep on a Trois Couronnes bed set is a moment of pure delight, with ma
     ',
     'en_lang' => 'English',
     'fr_lang' => 'Français',
-    'de_lang' => 'Deutsch'
+    'de_lang' => 'Deutsch',
+    'orderCatalogueTitle' => 'Register Your Guarantee Code',
+    'orderCatalogueKeywords' => 'Register Your Guarantee Code',
+    'orderCatalogueDescription' => 'Register Your Guarantee Code',
 ];

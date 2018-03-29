@@ -94,19 +94,7 @@ Route::post('findusaddimage', 'ImagesProjectController@findUsPostAddImageItem');
 
 
 /* ******** adm_order_catalogue { ************** */
-
-Route::get('adm_ordercatalogue/order', 'OrderCatalogueController@indexOrder')->name('ordercatalogue.order');
-Route::resource('adm_ordercatalogue', 'OrderCatalogueController', ['except' => 'show']);
-Route::put('adm_ordercataloguepostseen/{id}', 'OrderCatalogueAjaxController@updateSeen');
-Route::put('adm_ordercataloguepostactive/{id}', 'OrderCatalogueAjaxController@updateActive');
-Route::put('adm_ordercataloguepostis_menu/{id}', 'OrderCatalogueAjaxController@updateIsMenu');
-// rout front
-Route::get('order_catalogue', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');
-Route::get('order_catalogue/{code}', 'OrderCatalogueFrontController@show')->name('ordercatalogue.show');
-
-//image
-Route::post('ordercatalogueaddimage', 'ImagesProjectController@orderCataloguePostAddImageItem');
-
+Route::get('order-catalogue', 'OrderCatalogueFrontController@show');
 /* ******** } adm_order_catalogue ************** */
 
 

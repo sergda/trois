@@ -24,19 +24,26 @@ class HomeController extends Controller
     public function postSend(PostRequest $request) {
 
         $errors = [];
+
+        if(Input::get("catalogueFeedback") && Input::get("name") && strlen(Input::get("name")) > 1){
+            $errors['code'] = "Вы ведете себя как робот";
+        }
         $fields = [
             "name" => "Имя",
+            "code" => "code",
 //            "phone" => "Телефон",
             "email" => "E-mail",
             "subject" => "Заголовок",
         ];
 
-
-        if (!Input::get("name") || !strlen(Input::get("name")) > 1)
+        if ( (!Input::get("catalogueFeedback") && !Input::get("name") ) || (!Input::get("catalogueFeedback") && !strlen(Input::get("name")) > 1) )
             $errors['name'] = "Введите имя";
 
+        if ( (Input::get("catalogueFeedback") && !Input::get("code") ) || (Input::get("catalogueFeedback") && !strlen(Input::get("code")) > 1) )
+            $errors['code'] = "Please, indicate № CODE";
+
         if (!Input::get("email") || !strlen(Input::get("email")) > 1)
-            $errors['email'] = "Введите email";
+            $errors['email'] = "Please, indicate Your e-mail";
 /*
         if (!Input::get("phone") || !strlen(Input::get("phone")) > 1)
             $errors['phone'] = "Введите телефон!";
@@ -45,10 +52,20 @@ class HomeController extends Controller
                 $errors['phone'] = "Не верный формат";
 */
         if (count($errors) == 0) {
-            Mail::send('emails.request', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
+
+            $templates = (Input::get("catalogueFeedback")) ? 'emails_admin' : 'emails.request' ;
+
+            Mail::send($templates, ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
             {
                 $message->to('info@trois-couronnes.ch', ' ')->subject('Заявка с сайта Trois Couronnes: '. Input::get("subject") );
             });
+
+            if(Input::get("catalogueFeedback")){
+                Mail::send('emails_client', ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
+                {
+                    $message->to(Input::get("email"), ' ')->subject('Trois Couronnes: Thank you! code accepted' );
+                });
+            }
 
             $comment = "";
             foreach($fields as $key=>$field) {
