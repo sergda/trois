@@ -28,6 +28,11 @@ class CustomerServiceFrontController extends Controller
     {
         $user = $request->user();
 
-        return view('front.common_template.show', array_merge($this->customerServiceRepository->getPostBySlug($slug), compact('user')));
+        if($slug == "register-your-guarantee-code"){
+            return view('front.register_your_guarantee_code.show', array_merge($this->customerServiceRepository->getPostBySlug($slug), compact('user')));
+        }else{
+            return view('front.common_template.show', array_merge($this->customerServiceRepository->getPostBySlug($slug), compact('user')));
+        }
+
     }
 }

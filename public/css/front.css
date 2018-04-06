@@ -9213,3 +9213,53 @@ footer, .fedback-button {
   max-width: 1324px;
   z-index: 2;
 }
+.help-block li{
+  list-style: none;
+}
+.registeredForm{
+  height: 250px;
+}
+.registeredForm:before {
+  content: '';
+  background-image: url('/img/ALMO0208.png');
+  background-repeat: no-repeat;
+  position: absolute;
+  width: 100%;
+  z-index: 0;
+  left: -2%;
+  background-size: contain;
+}
+@media (max-width: 638px) {
+  .registeredForm:before {
+    height: 77%;
+    top: 89px;
+  }
+}
+@media (min-width: 639px) {
+  .registeredForm:before {
+    height: 120%;
+    top: 89px;
+  }
+}
+@media (min-width: 913px) {
+  .registeredForm:before {
+    height: 160%;
+    top: 0;
+  }
+}
+@media (min-width: 1200px) {
+  .registeredForm:before {
+    height: 210%;
+    top: 0;
+  }
+}
+@media (min-width: 1400px) {
+  .registeredForm:before {
+    height: 240%;
+    top: 0;
+  }
+}
+.modal-footer {
+  z-index: 1;
+  position: relative;
+}
