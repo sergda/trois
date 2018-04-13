@@ -29,15 +29,15 @@ class HomeController extends Controller
             $errors['code'] = "Вы ведете себя как робот";
         }
         $fields = [
-            "name" => "Имя",
+            "name" => "Name",
             "code" => "code",
 //            "phone" => "Телефон",
             "email" => "E-mail",
-            "subject" => "Заголовок",
+            "subject" => "Subject",
         ];
 
         if ( (!Input::get("catalogueFeedback") && !Input::get("name") ) || (!Input::get("catalogueFeedback") && !strlen(Input::get("name")) > 1) )
-            $errors['name'] = "Введите имя";
+            $errors['name'] = "Please, indicate Name";
 
         if ( (Input::get("catalogueFeedback") && !Input::get("code") ) || (Input::get("catalogueFeedback") && !strlen(Input::get("code")) > 1) )
             $errors['code'] = "Please, indicate № CODE";
@@ -57,7 +57,7 @@ class HomeController extends Controller
 
             Mail::send($templates, ["fields" => Input::all(), "needed" => $fields], function(\Illuminate\Mail\Message $message)
             {
-                $message->to('info@trois-couronnes.ch', ' ')->subject('Заявка с сайта Trois Couronnes: '. Input::get("subject") );
+                $message->to('info@trois-couronnes.ch', ' ')->subject('Application from the site Trois Couronnes: '. Input::get("subject") );
             });
 
             if(Input::get("catalogueFeedback")){

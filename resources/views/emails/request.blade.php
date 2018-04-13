@@ -1,7 +1,7 @@
 <html>
     <head></head>
     <body>
-        <h3>Новая заявка с сайта http://trois-couronnes.ch/ на подписку!</h3>
+        <h3>New application from the site http://trois-couronnes.ch/ to subscribe!</h3>
         <table>
             @foreach($needed as $key=>$field)
                 @if (isset($fields[$key]))
