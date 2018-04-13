@@ -5150,7 +5150,9 @@ button.close {
 
 .modal-body {
   position: relative;
-  padding: 15px; }
+  padding: 15px;
+  color: #000;
+}
 
 .modal-footer {
   padding: 15px;
@@ -5189,6 +5191,14 @@ button.close {
   .modal-lg {
     width: 900px; } }
 
+@media (min-width: 992px) {
+  .modal-my {
+    width: 90%;
+    top: 150px;
+  } }
+.modal-my .modal-body{
+  text-align: center;
+}
 .tooltip {
   position: absolute;
   z-index: 1070;
